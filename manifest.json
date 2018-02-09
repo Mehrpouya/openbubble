@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "diversify",
+  "version": "0.1",
+  "description": "surf the internet in the background to burst users data bubble.",
+  "homepage_url": "https://github.com/mehrpouya/diversifier",
+  "icons": {
+    "48": "icons/diversify.png"
+  },
+
+  "permissions": [
+    "alarms",
+    "tabs"
+  ],
+
+  "page_action": {
+    "default_icon": "icons/diversify.png",
+    "default_title": "diversify"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  }
+
+}
