@@ -2,7 +2,7 @@ var DELAY = 0.1;
 var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 
 /*
-Restart alarm for the currently active tab, whenever background.js is run.
+Restart alarm for the currently active tab, whenever openbubble.js is run.
 */
 var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
@@ -44,6 +44,8 @@ function restartAlarm(tabId) {
         browser.alarms.create("", {delayInMinutes: DELAY});
     }
 });
+    console.log("asasasasasaasasaasas");
+    console.log("salam");
 }
 
 /*
@@ -53,6 +55,7 @@ browser.alarms.onAlarm.addListener((alarm) => {
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
     browser.pageAction.show(tabs[0].id);
+    console.log("asasa");
 });
 });
 
