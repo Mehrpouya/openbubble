@@ -1,25 +1,18 @@
 {
   "manifest_version": 2,
-  "name": "diversify",
-  "version": "0.1",
-  "description": "surf the internet in the background to burst users data bubble.",
-  "homepage_url": "https://github.com/mehrpouya/diversifier",
+  "name": "Random unusual new tab",
+  "description": "Redirects to a random unusual wikipedia page when you open a new tab",
+  "homepage_url": "https://github.com/mehrpouya/openbubble",
+  "version": "1.0",
   "icons": {
-    "48": "icons/diversify.png"
+    "48": "icons/openbubble.png"
   },
-
   "permissions": [
-    "alarms",
+    "<all_urls>",
+    "storage",
     "tabs"
   ],
-
-  "page_action": {
-    "default_icon": "icons/diversify.png",
-    "default_title": "diversify"
-  },
-
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["openbubble.js"]
   }
-
 }
