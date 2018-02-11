@@ -77,7 +77,7 @@ function onError(error) {
 function updateFirstTab(tabs) {
     var updating = browser.tabs.update(tabs[0].id, {
         active: false,
-        url: "https://www.developer.mozilla.org"
+        url: "https://en.wikipedia.org/wiki/Special:Random/Talk"
     });
     updating.then(onUpdated, onError);
 }
