@@ -11,7 +11,8 @@
   "permissions": [
     "<all_urls>",
     "alarms",
-    "tabs"
+    "tabs",
+    "storage"
   ],
 
   "page_action": {
@@ -22,6 +23,10 @@
     "gecko": {
       "strict_min_version": "55.0a2"
     }
+  },
+//  This section is for the extention setting page.
+  "options_ui": {
+    "page": "options.html"
   },
 
   "background": {

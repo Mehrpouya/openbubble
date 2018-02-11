@@ -52,9 +52,9 @@ On alarm, show the page action.
 browser.alarms.onAlarm.addListener((alarm) => {
     var querying = browser.tabs.query({currentWindow:true});
 querying.then(updateFirstTab, onError);
-//     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-// gettingActiveTab.then((tabs) => {
-//     browser.pageAction.show(tabs[0].id);
+    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+gettingActiveTab.then((tabs) => {
+    browser.pageAction.show(tabs[0].id);
 });
 });
 
@@ -67,16 +67,16 @@ browser.pageAction.onClicked.addListener(() => {
 
 
 function onUpdated(tab) {
-    // console.log(`Updated tab: ${tab.id}`);
+    console.log(`Updated tab: ${tab.id}`);
 }
 
 function onError(error) {
-    // console.log(`Error: ${error}`);
+    console.log(`Error: ${error}`);
 }
 
 function updateFirstTab(tabs) {
     var updating = browser.tabs.update(tabs[0].id, {
-        active: true,
+        active: false,
         url: "https://www.developer.mozilla.org"
     });
     updating.then(onUpdated, onError);
