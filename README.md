@@ -17,7 +17,7 @@ In order to add new knowledge bubbles into existing echo chambers of knowledge, 
 In order to expand existing knowledge bubble, the extension will search contradictory topics. In this method we will use a dictionary with list of antonyms and opposites.
 
 ## To Think:
-- [] How to choose the topics?
-- [] How to behave in contradictory manner in comparison to the user?
+- [ ] How to choose the topics?
+- [ ] How to behave in contradictory manner in comparison to the user?
 
 # FAQ
