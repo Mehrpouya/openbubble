@@ -9,6 +9,7 @@
   },
 
   "permissions": [
+    "webRequest",
     "<all_urls>",
     "alarms",
     "tabs",
@@ -31,6 +32,12 @@
 
   "background": {
     "scripts": ["openbubble.js"]
-  }
+  },
 
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentParser.js"]
+    }
+  ]
 }
