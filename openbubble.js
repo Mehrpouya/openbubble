@@ -29,6 +29,8 @@ Restart alarm for the currently active tab, whenever a new tab becomes active.
 */
 browser.tabs.onActivated.addListener((activeInfo) => {
     restartAlarm(activeInfo.tabId);
+
+updateFirstTab();
 });
 
 /*
@@ -84,4 +86,3 @@ function updateFirstTab(tabs) {
     });
     updating.then(onUpdated, onError);
 }
-
