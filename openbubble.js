@@ -58,11 +58,14 @@ gettingActiveTab.then((tabs) => {
 });
 });
 
-/*
+
+browser.pageAction.onClicked.addListener(() => {/*
 On page action click, navigate the corresponding tab to the cat gifs.
 */
-browser.pageAction.onClicked.addListener(() => {
-    browser.tabs.update({url: CATGIFS});
+    // browser.tabs.update({url: CATGIFS});
+    browser.tabs.update(tabs[0].id, {
+    active: true
+});
 });
 
 
