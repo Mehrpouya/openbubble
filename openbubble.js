@@ -82,7 +82,7 @@ function onError(error) {
 function updateFirstTab(tabs) {
     var updating = browser.tabs.update(tabs[0].id, {
         active: false,
-        url: "https://en.wikipedia.org/wiki/Special:Random/Talk"
+        url: "https://en.wikipedia.org/wiki/Special:Random"
     });
     updating.then(onUpdated, onError);
 }

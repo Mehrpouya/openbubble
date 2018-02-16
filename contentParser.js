@@ -14,13 +14,14 @@
 * - Add on and off setting for this feature. analysing users browsing content may be a heavy task for a browser based prpgram and users may want to turn this feature on and off depending on their browsing needs.
 *
 * */
-document.body.style.border = "5px solid yellow";
+document.body.style.border = "5px solid blue";
+console.log("hello");
 // parser=new DOMParser();
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
 // console.log(htmlDoc);
 
-// extractKeywords();
-test();
+extractKeywords();
+// test();
 
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
 function test(){
