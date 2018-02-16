@@ -29,7 +29,8 @@ In order to expand existing knowledge bubble, the extension will search contradi
     1. For example are they looking at right/left wing news?
     2. Are they only looking at technology related material?
 
-
+### 1. How to choose topics?
+This will be based on random wikipedia articles. once we open an article, certain keywords will be extracted and they will be search for a set period of time. In addition the extention will search and view items on major consumer websites such as ebay, amazon, google shopping, skyscanner,...
 ### 4. How to workout what kind of content the user browses?
 Here we have a choice of several different approaches. a) use semantic search engines b) content analysers such as Calais c) develop a local dictionary
 
@@ -43,5 +44,10 @@ By using a web service, this means the content the user is browsing has to be se
 ## Design:
 One of the challenges to develop a program that can function meaningfully, i.e. it is not easy to identify it as a robot or spam is it will run its tasks based on users actions.
 For example when then user starts a new tab, this extention will also refresh its tab and loads new content. In this way we reduce the chance of search engines, social media and data minners to detect the real identity of this tool.
+
+##Actions
+- Make a list of news providers, distributors accross the board (left, right and center).
+- Make a list of consumer products based on the categoris of amazon
+- Make a dictionary for querying major consumer websites such as amazon, ebay and google.
 
 # FAQ

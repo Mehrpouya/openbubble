@@ -21,8 +21,14 @@ console.log("hello");
 // console.log(htmlDoc);
 
 // extractKeywords();
-test();
+// test();
+articleExtractor();
+// var extractor = require('article-extractor');
 
+var parser = require('concepts-parser');
+function articleExtractor(){
+    console.log("in extractor!!",parser);
+}
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
 function test(){
     var words = document.body.textContent.split(/\s+/).sort().filter( function(v,i,o){return v!==o[i-1];});
