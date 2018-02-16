@@ -20,8 +20,8 @@ console.log("hello");
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
 // console.log(htmlDoc);
 
-extractKeywords();
-// test();
+// extractKeywords();
+test();
 
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
 function test(){
