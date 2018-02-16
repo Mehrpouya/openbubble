@@ -19,11 +19,14 @@ document.body.style.border = "5px solid yellow";
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
 // console.log(htmlDoc);
 
-extractKeywords();
+// extractKeywords();
+test();
 
-
-
-
+//source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
+function test(){
+    var words = document.body.textContent.split(/\s+/).sort().filter( function(v,i,o){return v!==o[i-1];});
+    console.log(words);
+}
 
 function extractKeywords(){
     // var range = document.createRange();
