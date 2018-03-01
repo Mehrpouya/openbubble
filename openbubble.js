@@ -1,5 +1,5 @@
 var DELAY = 0.1;
-var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
+// var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
 // console.log("asasa");
 /*
 Restart alarm for the currently active tab, whenever openbubble.js is run.
@@ -13,8 +13,12 @@ gettingActiveTab.then((tabs) => {
 Restart alarm for the currently active tab, whenever the user navigates.
 */
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (!changeInfo.url) {
-    return;
+    if(!changeInfo.url)
+        {
+            return;
+        }
+    updateFirstTab();
+
 }
 var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
@@ -30,7 +34,7 @@ Restart alarm for the currently active tab, whenever a new tab becomes active.
 browser.tabs.onActivated.addListener((activeInfo) => {
     restartAlarm(activeInfo.tabId);
 
-updateFirstTab();
+// updateFirstTab();
 });
 
 /*
@@ -42,7 +46,7 @@ function restartAlarm(tabId) {
     browser.alarms.clearAll();
     var gettingTab = browser.tabs.get(tabId);
     gettingTab.then((tab) =>{
-        if (tab.url != CATGIFS) {
+        if (tab.number != 0) {
         browser.alarms.create("", {delayInMinutes: DELAY});
     }
 });
@@ -53,7 +57,7 @@ On alarm, show the page action.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
     var querying = browser.tabs.query({currentWindow:true});
-querying.then(updateFirstTab, onError);
+// querying.then(updateFirstTab, onError);
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
     browser.pageAction.show(tabs[0].id);
@@ -85,4 +89,11 @@ function updateFirstTab(tabs) {
         url: "https://en.wikipedia.org/wiki/Special:Random"
     });
     updating.then(onUpdated, onError);
+}
+console.log("aggggi");
+browser.tabs.onActivated.addListener(userActivity);
+
+function userActivity(activeInfo) {
+    console.log("sasaas21");
+
 }

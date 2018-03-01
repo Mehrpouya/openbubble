@@ -29,6 +29,8 @@
     "page": "options.html"
   },
 
+
+
   "background": {
     "scripts": ["openbubble.js"]
   },
