@@ -1,9 +1,20 @@
-var DELAY = 0.1;
-// var CATGIFS = "http://chilloutandwatchsomecatgifs.com/";
-// console.log("asasa");
+
+/*
+Author: Hadi Mehrpouya
+Date:   07/03/2018
+ */
+
+/*
+TODO:
+
+CHECK:
+you can listen to tabs.onUpdated events to be notified when a URL is set.*/
+
 /*
 Restart alarm for the currently active tab, whenever openbubble.js is run.
 */
+var DELAY = 0.1;
+
 var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
     restartAlarm(tabs[0].id);
@@ -13,29 +24,29 @@ gettingActiveTab.then((tabs) => {
 Restart alarm for the currently active tab, whenever the user navigates.
 */
 browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if(!changeInfo.url)
-        {
-            return;
-        }
-    updateFirstTab();
-
-}
-var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
-    if (tabId == tabs[0].id) {
-    restartAlarm(tabId);
-}
-});
+    if (!changeInfo.url) {
+    return;
+    }
+    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+    gettingActiveTab.then((tabs) => {
+        if (tabId == tabs[0].id) {
+        restartAlarm(tabId);
+    }
+    });
 });
 
 /*
 Restart alarm for the currently active tab, whenever a new tab becomes active.
 */
-browser.tabs.onActivated.addListener((activeInfo) => {
-    restartAlarm(activeInfo.tabId);
 
-// updateFirstTab();
-});
+function handleActivated(activeInfo) {
+    console.log("Tab " + activeInfo.tabId +
+        " was activated");
+    restartAlarm(activeInfo.tabId);
+    updateFirstTab();
+}
+
+browser.tabs.onActivated.addListener(handleActivated);
 
 /*
 restartAlarm: clear all alarms,
@@ -46,7 +57,7 @@ function restartAlarm(tabId) {
     browser.alarms.clearAll();
     var gettingTab = browser.tabs.get(tabId);
     gettingTab.then((tab) =>{
-        if (tab.number != 0) {
+        if (tab.url) {
         browser.alarms.create("", {delayInMinutes: DELAY});
     }
 });
@@ -57,21 +68,21 @@ On alarm, show the page action.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
     var querying = browser.tabs.query({currentWindow:true});
-// querying.then(updateFirstTab, onError);
-    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+querying.then(updateFirstTab, onError);
+var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
 gettingActiveTab.then((tabs) => {
     browser.pageAction.show(tabs[0].id);
 });
 });
 
 
-browser.pageAction.onClicked.addListener(() => {/*
-On page action click, navigate the corresponding tab to the cat gifs.
-*/
-    // browser.tabs.update({url: CATGIFS});
-    browser.tabs.update(tabs[0].id, {
-    active: true
-});
+browser.pageAction.onClicked.addListener(() => {
+    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+    gettingActiveTab.then((tabs) => {
+            browser.tabs.update(tabs[0].id, {
+            active: true
+        });
+    });
 });
 
 
@@ -84,16 +95,12 @@ function onError(error) {
 }
 
 function updateFirstTab(tabs) {
-    var updating = browser.tabs.update(tabs[0].id, {
-        active: false,
-        url: "https://en.wikipedia.org/wiki/Special:Random"
+    var gettingActiveTab = browser.tabs.query({currentWindow: true});
+    gettingActiveTab.then((tabs) => {
+        var updating = browser.tabs.update(tabs[0].id, {
+            active: false,
+            url: "https://en.wikipedia.org/wiki/Special:Random/Talk"
+        });
+        updating.then(onUpdated, onError);
     });
-    updating.then(onUpdated, onError);
-}
-console.log("aggggi");
-browser.tabs.onActivated.addListener(userActivity);
-
-function userActivity(activeInfo) {
-    console.log("sasaas21");
-
 }

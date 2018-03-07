@@ -51,3 +51,6 @@ For example when then user starts a new tab, this extention will also refresh it
 - Make a dictionary for querying major consumer websites such as amazon, ebay and google.
 
 # FAQ
+
+
+
