@@ -44,12 +44,18 @@ By using a web service, this means the content the user is browsing has to be se
 ## Design:
 One of the challenges to develop a program that can function meaningfully, i.e. it is not easy to identify it as a robot or spam is it will run its tasks based on users actions.
 For example when then user starts a new tab, this extention will also refresh its tab and loads new content. In this way we reduce the chance of search engines, social media and data minners to detect the real identity of this tool.
-
+How to challenge google knowledge about fact they have about us. for example they know I am 43 nd afather!
+How this will work differently for differen t pleople based ojn their situation component.
+Minority report police have th ecopacity to predict crimes. They can arrest people before the crime is committted.
 ##Actions
 - Make a list of news providers, distributors accross the board (left, right and center).
 - Make a list of consumer products based on the categoris of amazon
 - Make a dictionary for querying major consumer websites such as amazon, ebay and google.
 
+# Stages
+- [x] Add find a topic functionality
+- [ ] Store topic in local storage
+- [ ]
 # FAQ
 
 
