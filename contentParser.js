@@ -15,7 +15,7 @@
 *
 * */
 document.body.style.border = "5px solid blue";
-console.log("hello");
+console.log("hello 1");
 // parser=new DOMParser();
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
 // console.log(htmlDoc);
