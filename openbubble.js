@@ -57,8 +57,12 @@ function InitialiseSetting(){
             status:G_STATUS_LIST.searching,//Always start with searching.};
             surfing:{links:["http://hadi.link","http://hadi.link/gch_minecraft"]}
         }
+    saveSetting();
+}
+
+function saveSetting(){
     localStorage.setItem('OPENBUBBLE_SETTING', JSON.stringify(G_OPENBUBBLE_SETTING));
-    console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
+    console.log("saved openbubble_setting to local storage " , localStorage.getItem('OPENBUBBLE_SETTING'));
 }
 /*
 Check if the state variable has a value, if not try to load it from localstorage. If still no value set it to surfing
@@ -202,6 +206,16 @@ function getWikipedia_Controversial_Topics() {
 }
 function loadTopics(_status,_response){
     console.log(_response);
+    var links = _response.parse.links;
+    var result = 0;
+    chooseRandomTopic(links);
+}
+
+function chooseRandomTopic(_topics){
+    var randomIndex = Math.floor(Math.random()*_topics.length);
+    var topic = _topics[randomIndex];
+    G_OPENBUBBLE_SETTING.topic = topic['*'];
+    saveSetting();
 }
 // sending web requests
 
