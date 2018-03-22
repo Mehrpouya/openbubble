@@ -8,6 +8,7 @@ This program attempts to mimic users online behaviour. By using WEBExtention API
 ### 1. New knowledge
 #### 1.1. Tagging or Topic selection
 In order to add new knowledge bubbles into existing echo chambers of knowledge, we will first do a content tagging (using Open Calais & Stanford NLP) for topic extraction.
+Instead of doing tagging, the extention gets list of controversial topics from wikipedia, chooses one randomly and start searching about it.
 #### 1.2. Search engine introduction to new topics of interest
 - Searching specific keywords within a certain domain of knowledge
 - Getting X (10) links from each engine.
@@ -30,7 +31,9 @@ In order to expand existing knowledge bubble, the extension will search contradi
     2. Are they only looking at technology related material?
 
 ### 1. How to choose topics?
-This will be based on random wikipedia articles. once we open an article, certain keywords will be extracted and they will be search for a set period of time. In addition the extention will search and view items on major consumer websites such as ebay, amazon, google shopping, skyscanner,...
+Originally the idea was to open a random wikipedia page, run a tagging and topic extraction algorithm and then focus on the exctracted keywords for a set period of time. Now the extention will get the list of controversial topics from wikipedia and focus on them for a set period of time.
+
+once we open an article, certain keywords will be extracted and they will be search for a set period of time. In addition the extention will search and view items on major consumer websites such as ebay, amazon, google shopping, skyscanner,...
 ### 4. How to workout what kind of content the user browses?
 Here we have a choice of several different approaches. a) use semantic search engines b) content analysers such as Calais c) develop a local dictionary
 

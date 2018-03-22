@@ -7,35 +7,38 @@ Date:   07/03/2018
 /*
 TODO:
 - Learn how to send message between content script and background.
-/*
+
 Restart alarm for the currently active tab, whenever openbubble.js is run.
+Retrieves controversial topics from wikipedia
+choose one randomly
 */
 var G_DELAY = 0.1;
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
-var G_TOPICS_LIST = Object.freeze({
-    "culture":0,
-    "family":1,
-    "law":2,
-    "cuisine":3,
-    "politics":4,
-    "food":5,
-    "economics":6,
-    "business":7,
-    "social_sciences":8,
-    "social_issues":9,
-    "games":10,
-    "sports":11,
-    "mass_media":12,
-    "continents_regions":13, //dictionary of cities
-    "humanities":14,
-    "arts":15,
-    "health":16 // Whether one have a tumour or cancer
-});
+// var G_TOPICS_LIST = Object.freeze({
+//     "culture":0,
+//     "family":1,
+//     "law":2,
+//     "cuisine":3,
+//     "politics":4,
+//     "food":5,
+//     "economics":6,
+//     "business":7,
+//     "social_sciences":8,
+//     "social_issues":9,
+//     "games":10,
+//     "sports":11,
+//     "mass_media":12,
+//     "continents_regions":13, //dictionary of cities
+//     "humanities":14,
+//     "arts":15,
+//     "health":16 // Whether one have a tumour or cancer
+// });
 var G_OPENBUBBLE_SETTING;
 console.log("before initialising setting.");
 InitialiseSetting();
+getWikipedia_Controversial_Topics();
 
 //Loads extention setting from Localstorage.
 function LoadSetting(){
@@ -178,15 +181,7 @@ function updateFirstTab(tabs) {
         updating.then(onUpdated, onError);
     });
 }
-
-function getWikipedia_Controversial_Topics() {
-    var wikiAPI_RUL = "https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Wikipedia%3AList_of_controversial_issues&prop=links&section=1"; // This is the api address for getting all links on controversial topics.
-
-
-    
-}
-// sending web requests
-var getJSON = function(url, callback) {
+function getJSON(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
     xhr.responseType = 'json';
@@ -200,6 +195,15 @@ var getJSON = function(url, callback) {
     };
     xhr.send();
 };
+
+function getWikipedia_Controversial_Topics() {
+    var wikiAPI_RUL = "https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Wikipedia%3AList_of_controversial_issues&prop=links&section=1"; // This is the api address for getting all links on controversial topics.
+    getJSON(wikiAPI_RUL,loadTopics);
+}
+function loadTopics(_status,_response){
+    console.log(_response);
+}
+// sending web requests
 
 
 function handleMessage(request, sender, sendResponse) {
