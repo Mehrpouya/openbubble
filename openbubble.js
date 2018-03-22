@@ -74,21 +74,27 @@ function checkState(){
 /*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
 function surf(){
     console.log("in surf!!");
-    // var surfSetting = G_OPENBUBBLE_SETTING.surfing;
     // if(surfSetting.links.length>0){
-    //     var gettingActiveTab = browser.tabs.query({currentWindow: true});
-    //     //How to navigate this new tab and remove it from the list.
-    //     gettingActiveTab.then((tabs) => {
-    //         var linkToOpen = G_OPENBUBBLE_SETTING.surfing.links[G_OPENBUBBLE_SETTING.surfing.links-1];
-    //         G_OPENBUBBLE_SETTING.surfing.links.pop();
-    //         var updating = browser.tabs.update(tabs[0].id, {
-    //             active: false,
-    //             url: linkToOpen
-    //         });
-    //     updating.then(onUpdated, onError);
-    // });
+        var gettingActiveTab = browser.tabs.query({currentWindow: true});
+        //     //How to navigate this new tab and remove it from the list.
+        gettingActiveTab.then((tabs) => {
+            var linkToOpen = getRandomURL();
+        // var surfSetting = G_OPENBUBBLE_SETTING.surfing;
+        var updating = browser.tabs.update(tabs[0].id, {
+                active: false,
+                url: linkToOpen
+            });
+        updating.then(onUpdated, onError);
+    });
     // }
 
+}
+
+function getRandomURL(){
+    var url = "https://www.google.co.uk/search?q=" + getCurrentTopic();
+    // G_OPENBUBBLE_SETTING.surfing.links.pop();
+saveSetting();
+    return url;
 }
 //look at what topic we are exploring, search and find new links.
 function findMoreLinks(){
@@ -202,21 +208,30 @@ function getJSON(url, callback) {
 
 function getWikipedia_Controversial_Topics() {
     var wikiAPI_RUL = "https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Wikipedia%3AList_of_controversial_issues&prop=links&section=1"; // This is the api address for getting all links on controversial topics.
-    getJSON(wikiAPI_RUL,loadTopics);
+    getJSON(wikiAPI_RUL,loadNewTopic);
 }
-function loadTopics(_status,_response){
+function loadNewTopic(_status,_response){
     console.log(_response);
     var links = _response.parse.links;
     var result = 0;
     chooseRandomTopic(links);
 }
-
+//get a random number relative to the size of array, find one and add it to the openbubble setting as the topic to explore.
+//Adds a topic to the setting which has the date this topic being created and the title of this topic.
 function chooseRandomTopic(_topics){
     var randomIndex = Math.floor(Math.random()*_topics.length);
     var topic = _topics[randomIndex];
-    G_OPENBUBBLE_SETTING.topic = topic['*'];
+    G_OPENBUBBLE_SETTING.topic = {"title":topic['*'],"date_created":Date.now()};
     saveSetting();
 }
+//check if there is no topic in the setting add it. otherwise just return the current one. this should also check if the topic is expired or not.
+function getCurrentTopic(){
+    var topic = G_OPENBUBBLE_SETTING.topic['title'];
+    return topic;
+}
+
+
+
 // sending web requests
 
 
@@ -225,5 +240,4 @@ function handleMessage(request, sender, sendResponse) {
         request.greeting);
     sendResponse({response: "Response from background script"});
 }
-
 browser.runtime.onMessage.addListener(handleMessage);
