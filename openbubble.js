@@ -6,10 +6,7 @@ Date:   07/03/2018
 
 /*
 TODO:
-
-CHECK:
-you can listen to tabs.onUpdated events to be notified when a URL is set.*/
-
+- Learn how to send message between content script and background.
 /*
 Restart alarm for the currently active tab, whenever openbubble.js is run.
 */
@@ -58,12 +55,8 @@ function InitialiseSetting(){
             surfing:{links:["http://hadi.link","http://hadi.link/gch_minecraft"]}
         }
     localStorage.setItem('OPENBUBBLE_SETTING', JSON.stringify(G_OPENBUBBLE_SETTING));
+    console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
 }
-var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
-    restartAlarm(tabs[0].id);
-});
-
 /*
 Check if the state variable has a value, if not try to load it from localstorage. If still no value set it to surfing
  */
@@ -185,3 +178,34 @@ function updateFirstTab(tabs) {
         updating.then(onUpdated, onError);
     });
 }
+
+function getWikipedia_Controversial_Topics() {
+    var wikiAPI_RUL = "https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Wikipedia%3AList_of_controversial_issues&prop=links&section=1"; // This is the api address for getting all links on controversial topics.
+
+
+    
+}
+// sending web requests
+var getJSON = function(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.responseType = 'json';
+    xhr.onload = function() {
+        var status = xhr.status;
+        if (status === 200) {
+            callback(null, xhr.response);
+        } else {
+            callback(status, xhr.response);
+        }
+    };
+    xhr.send();
+};
+
+
+function handleMessage(request, sender, sendResponse) {
+    console.log("Message from the content script: " +
+        request.greeting);
+    sendResponse({response: "Response from background script"});
+}
+
+browser.runtime.onMessage.addListener(handleMessage);

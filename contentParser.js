@@ -16,6 +16,8 @@
 * */
 document.body.style.border = "5px solid blue";
 console.log("hello 1");
+console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
+notifyBackgroundPage();
 // parser=new DOMParser();
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
 // console.log(htmlDoc);
@@ -77,3 +79,18 @@ function extractTitle(){
     // Special Elements (can contain anything)
     var special = makeMap("script,style");
 });
+
+function handleResponse(message) {
+    console.log(`Message from the background script:  ${message.response}`);
+}
+
+function handleError(error) {
+    console.log(`Error: ${error}`);
+}
+
+function notifyBackgroundPage(e) {
+    var sending = browser.runtime.sendMessage({
+        greeting: "Greeting from the content script"
+    });
+    sending.then(handleResponse, handleError);
+}
