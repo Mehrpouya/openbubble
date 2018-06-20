@@ -4,13 +4,13 @@ This extension aims to browse the web in the background mimicking users behavior
 This program attempts to mimic users online behaviour. By using WEBExtention API, this application will disrupt a) knowledge bubble b) consumer bubble
 ### Knowledge bubble
  1. Follow a similar pattern to each users internet activity.
-  - As soon as the user open a new tab, this extension will also open a link
-  - This will always be the first tab in each session
+    - As soon as the user open a new tab, this extension will also open a link
+    - This will always be the first tab in each session
  2. Get a link of topics from wikiedia list of topics randomly
  3. store the topic in session storage
  4. search on google, duckduckgo and bing for results
  5. Store the links each search engine returned in sessions storage.
-  - This will be about 30 links total
+    - This will be about 30 links total
  6. Surf the links
 
  ### Consumer bubbles
