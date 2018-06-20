@@ -36,9 +36,11 @@ Semantic search engines help analysing the data and breaking it down ito core el
 By using a web service, this means the content the user is browsing has to be sent to an external entity which is a great risk to the user as they may not want to send any of the pages they view into an external third party service provider even though many cookies and content providers are already tracking them.
 ##### Pros & Cons
 **Pros:**
+
 - We can have a customised list of topics each user is interested in
 - Accurate
   - In order to expand existing knowledge bubble, the extension will search contradictory topics. In this method we will use a dictionary with list of antonyms and opposites.
+
 **Cons:**
 - Data and privacy concerns as we need to send users data out of their PC to external NLP service suck as Open Calais
 - Complex infrastructure and this can introduce more risks and difficulty with maintaining it
@@ -48,9 +50,11 @@ By using a web service, this means the content the user is browsing has to be se
 We can get list of topics from wikipedia either from their list of [controversial topics](https://en.wikipedia.org/wiki/Wikipedia:List_of_controversial_issues) or [general list](https://en.wikipedia.org/wiki/Portal:Contents/Lists).
 
 **Pros:**
+
 - Easy to get the list from Wikipedia
 - easier to implement
 - secure as no data will go out of users browser
+
 **Cons:**
 - We can't target specific behaviours or knowledge bubbles
 - Takes longer to disrupt  
