@@ -12,29 +12,11 @@ Restart alarm for the currently active tab, whenever openbubble.js is run.
 Retrieves controversial topics from wikipedia
 choose one randomly
 */
-var G_DELAY = 0.1;
+var G_DELAY = 100;
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
-// var G_TOPICS_LIST = Object.freeze({
-//     "culture":0,
-//     "family":1,
-//     "law":2,
-//     "cuisine":3,
-//     "politics":4,
-//     "food":5,
-//     "economics":6,
-//     "business":7,
-//     "social_sciences":8,
-//     "social_issues":9,
-//     "games":10,
-//     "sports":11,
-//     "mass_media":12,
-//     "continents_regions":13, //dictionary of cities
-//     "humanities":14,
-//     "arts":15,
-//     "health":16 // Whether one have a tumour or cancer
-// });
+
 var G_OPENBUBBLE_SETTING;
 console.log("before initialising setting.");
 InitialiseSetting();
@@ -79,7 +61,7 @@ function surf(){
         //     //How to navigate this new tab and remove it from the list.
         gettingActiveTab.then((tabs) => {
             var linkToOpen = getRandomURL();
-        // var surfSetting = G_OPENBUBBLE_SETTING.surfing;
+        var surfSetting = G_OPENBUBBLE_SETTING.surfing;
         var updating = browser.tabs.update(tabs[0].id, {
                 active: false,
                 url: linkToOpen
@@ -92,8 +74,9 @@ function surf(){
 
 function getRandomURL(){
     var url = "https://www.google.co.uk/search?q=" + getCurrentTopic();
+    messageContentParser();
     // G_OPENBUBBLE_SETTING.surfing.links.pop();
-saveSetting();
+    saveSetting();
     return url;
 }
 //look at what topic we are exploring, search and find new links.
@@ -166,11 +149,11 @@ gettingActiveTab.then((tabs) => {
 browser.pageAction.onClicked.addListener(() => {
     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
     gettingActiveTab.then((tabs) => {
-            browser.tabs.update(tabs[0].id, {
-            active: true
+        surf();
+            // browser.tabs.update(tabs[0].id, {
+            // active: true
         });
     });
-});
 
 
 function onUpdated(tab) {
@@ -234,6 +217,13 @@ function getCurrentTopic(){
 
 // sending web requests
 
+function messageContentParser() {
+    console.log("sendong message to content parser");
+    window.postMessage({
+        direction: "from-open-bubble",
+        message: 1 // 1 means a search on google
+    }, "*");
+}
 
 function handleMessage(request, sender, sendResponse) {
     console.log("Message from the content script: " +
