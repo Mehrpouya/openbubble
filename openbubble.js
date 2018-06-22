@@ -18,7 +18,6 @@ var G_STATUS_LIST = Object.freeze({
 });
 
 var G_OPENBUBBLE_SETTING;
-console.log("before initialising setting.");
 InitialiseSetting();
 getWikipedia_Controversial_Topics();
 
@@ -34,6 +33,7 @@ function LoadSetting(){
 // Initialising local storage with extension recommended setting for the first time
 function InitialiseSetting(){
     console.log("Initialising local storage with extension's recommended setting for the first time");
+    //TODO: Check logic here if I need to fill the surfing links here or leave it empty and it will get filled via searchig.
     G_OPENBUBBLE_SETTING =
         {
             status:G_STATUS_LIST.searching,//Always start with searching.};
@@ -213,21 +213,40 @@ function getCurrentTopic(){
     return topic;
 }
 
-
-
-// sending web requests
-
-function messageContentParser() {
-    console.log("sendong message to content parser");
-    window.postMessage({
-        direction: "from-open-bubble",
-        message: 1 // 1 means a search on google
-    }, "*");
+function handleResponse(message) {
+    console.log(`Message from the background script:  ${message.response}`);
 }
 
-function handleMessage(request, sender, sendResponse) {
-    console.log("Message from the content script: " +
-        request.greeting);
-    sendResponse({response: "Response from background script"});
+function handleError(error) {
+    console.log(`Error: ${error}`);
 }
+
+function messageContentParser(e) {
+    console.log("sending message to content parser!!!!!!");
+    var sending = browser.tabs.sendMessage(
+        1,
+    {
+        parsing_type: 1
+    });
+    sending.then(response => {
+        console.log("Message from the content script:");
+    console.log(response.response);
+}).catch(onError);
+}
+//
+// // sending web requests
+//
+// function messageContentParser() {
+//     console.log("sendong message to content parser");
+//     window.postMessage({
+//         direction: "from-open-bubble",
+//         message: 1 // 1 means a search on google
+//     }, "*");
+// }
+//
+// function handleMessage(request, sender, sendResponse) {
+//     console.log("Message from the content script: " +
+//         request.greeting);
+//     sendResponse({response: "Response from background script"});
+// }
 browser.runtime.onMessage.addListener(handleMessage);

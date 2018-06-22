@@ -10,13 +10,15 @@
 // 5. Do this process from time to time whenever the extention needs new topics
 
 
-/* TODO:
-* - Add on and off setting for this feature. analysing users browsing content may be a heavy task for a browser based prpgram and users may want to turn this feature on and off depending on their browsing needs.
-*
-* */
+/*
+* TODO:
+*   - Add on and off setting for this feature. analysing users browsing content may be a heavy task for a browser based prpgram and users may want to turn this feature on and off depending on their browsing needs.
+*   - Change to matches style to only react to search engines.
+*   - When running code in the context of the page, be very careful. The page's environment is controlled by potentially malicious web pages, which can redefine objects you interact with to behave in unexpected ways.
+*/
 document.body.style.border = "5px solid blue";
 console.log("hello 1");
-console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
+// console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
 notifyBackgroundPage();
 // parser=new DOMParser();
 // htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
@@ -24,28 +26,18 @@ notifyBackgroundPage();
 
 // extractKeywords();
 // test();
-extractTitle();
+extractLinks();
 // var extractor = require('article-extractor');
 
 function articleExtractor(){
     console.log("in extractor!!");
 }
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
-function extractTitle(){
-    // var range = document.createRange();
-    // range.selectNode(document.body); // required in Safari
-    // var fragment = range.createContextualFragment('<h1>html...</h1>');
-    // var firstNode = fragment.firstChild;
-    // var div=document.createElement("DIV");
-    // div.innerHTML = document.body;
-    // result = div.childNodes;
-    // var el = document.createElement( 'html' );
-    // el.innerHTML = document.body.innerHTML;
+function extractLinks(){
+    //check if we're on first tab
+    // console.log("url is", getURL());
+    console.log(Date.now(),"brr");
 
-    console.log(Date.now());
-    // var result = HTMLtoDOM(document.body.innerHTML); // Live NodeList of your anchor elements
-    docTitle = document.title;
-    console.log(docTitle);
 }
 
 /*
@@ -81,12 +73,31 @@ function extractTitle(){
 });
 
 function handleResponse(message) {
-    console.log(`Message from the background script:  ${message.response}`);
+    console.log(`Message from the background script:  ${message.response.message}`);
 }
-
-function handleError(error) {
-    console.log(`Error: ${error}`);
+function handleMessage(request, sender, sendResponse) {
+    console.log("Message from the content scripttttttttttt: " +
+        request.parsing_type);
+    sendResponse({response: "Response from background scriptrrrrrrrrrr"});
 }
+browser.runtime.onMessage.addListener(request => {
+    console.log("Message from the background script:");
+console.log(request.parsing_type);
+return Promise.resolve({response: "Hi from content script"});
+});
+// browser.runtime.onMessage.addListener(handleMessage);
+// browser.runtime.addEventListener("message", function(event) {
+//     console.log(" in Content script received message: ");
+//
+//     if (event.source == window &&
+//         event.data &&
+//         event.data.direction == "from-open-bubble") {
+//         console.log("Content script received message: \"" + event.data.message + "\"");
+//     }
+// });
+// function handleError(error) {
+//     console.log(`Error: ${error}`);
+// }
 
 function notifyBackgroundPage(e) {
     var sending = browser.runtime.sendMessage({
