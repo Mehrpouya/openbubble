@@ -33,7 +33,8 @@
 
   "background": {
     "scripts": ["openbubble.js"]
-  },
+  }
+,
 
   "content_scripts": [
     {

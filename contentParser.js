@@ -18,16 +18,7 @@
 */
 document.body.style.border = "5px solid blue";
 console.log("hello 1");
-// console.log(localStorage.getItem('OPENBUBBLE_SETTING'));
-notifyBackgroundPage();
-// parser=new DOMParser();
-// htmlDoc=parser.parseFromString(document.body.innerHTML, "text/html");
-// console.log(htmlDoc);
-
-// extractKeywords();
-// test();
 extractLinks();
-// var extractor = require('article-extractor');
 
 function articleExtractor(){
     console.log("in extractor!!");
@@ -37,71 +28,16 @@ function extractLinks(){
     //check if we're on first tab
     // console.log("url is", getURL());
     console.log(Date.now(),"brr");
+    console.log(document.body.innerHTML);
+
+
 
 }
+var myPort = browser.runtime.connect({name:"port-from-cs"});
+myPort.postMessage({greeting: "hello from content script"});
 
-/*
- * HTML Parser By John Resig (ejohn.org)
- * Original code by Erik Arvidsson, Mozilla Public License
- * http://erik.eae.net/simplehtmlparser/simplehtmlparser.js
- */
-(function() {
-
-    // Regular Expressions for parsing tags and attributes
-    var startTag = /^<([-A-Za-z0-9_]+)((?:\s+\w+(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/,
-        endTag = /^<\/([-A-Za-z0-9_]+)[^>]*>/,
-        attr = /([-A-Za-z0-9_]+)(?:\s*=\s*(?:(?:"((?:\\.|[^"])*)")|(?:'((?:\\.|[^'])*)')|([^>\s]+)))?/g;
-
-    // Empty Elements - HTML 4.01
-    var empty = makeMap("area,base,basefont,br,col,frame,hr,img,input,isindex,link,meta,param,embed");
-
-    // Block Elements - HTML 4.01
-    var block = makeMap("address,applet,blockquote,button,center,dd,del,dir,div,dl,dt,fieldset,form,frameset,hr,iframe,ins,isindex,li,map,menu,noframes,noscript,object,ol,p,pre,script,table,tbody,td,tfoot,th,thead,tr,ul");
-
-    // Inline Elements - HTML 4.01
-    var inline = makeMap("a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,select,small,span,strike,strong,sub,sup,textarea,tt,u,var");
-
-    // Elements that you can, intentionally, leave open
-    // (and which close themselves)
-    var closeSelf = makeMap("colgroup,dd,dt,li,options,p,td,tfoot,th,thead,tr");
-
-    // Attributes that have their values filled in disabled="disabled"
-    var fillAttrs = makeMap("checked,compact,declare,defer,disabled,ismap,multiple,nohref,noresize,noshade,nowrap,readonly,selected");
-
-    // Special Elements (can contain anything)
-    var special = makeMap("script,style");
+myPort.onMessage.addListener(function(m) {
+    console.log("In content script, received message from background script: ");
+    console.log(m.greeting);
 });
 
-function handleResponse(message) {
-    console.log(`Message from the background script:  ${message.response.message}`);
-}
-function handleMessage(request, sender, sendResponse) {
-    console.log("Message from the content scripttttttttttt: " +
-        request.parsing_type);
-    sendResponse({response: "Response from background scriptrrrrrrrrrr"});
-}
-browser.runtime.onMessage.addListener(request => {
-    console.log("Message from the background script:");
-console.log(request.parsing_type);
-return Promise.resolve({response: "Hi from content script"});
-});
-// browser.runtime.onMessage.addListener(handleMessage);
-// browser.runtime.addEventListener("message", function(event) {
-//     console.log(" in Content script received message: ");
-//
-//     if (event.source == window &&
-//         event.data &&
-//         event.data.direction == "from-open-bubble") {
-//         console.log("Content script received message: \"" + event.data.message + "\"");
-//     }
-// });
-// function handleError(error) {
-//     console.log(`Error: ${error}`);
-// }
-
-function notifyBackgroundPage(e) {
-    var sending = browser.runtime.sendMessage({
-        greeting: "Greeting from the content script"
-    });
-    sending.then(handleResponse, handleError);
-}

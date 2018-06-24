@@ -18,6 +18,10 @@ var G_STATUS_LIST = Object.freeze({
 });
 
 var G_OPENBUBBLE_SETTING;
+var portFromCS;
+
+browser.runtime.onConnect.addListener(connected);
+
 InitialiseSetting();
 getWikipedia_Controversial_Topics();
 
@@ -61,20 +65,23 @@ function surf(){
         //     //How to navigate this new tab and remove it from the list.
         gettingActiveTab.then((tabs) => {
             var linkToOpen = getRandomURL();
-        var surfSetting = G_OPENBUBBLE_SETTING.surfing;
+    var surfSetting = G_OPENBUBBLE_SETTING.surfing;
         var updating = browser.tabs.update(tabs[0].id, {
                 active: false,
                 url: linkToOpen
             });
-        updating.then(onUpdated, onError);
+        updating.then(searchedForNewTopic(tabs[0].id), onError);
     });
     // }
 
 }
+function searchedForNewTopic(_tabID){
+    console.log("searching for new topic", _tabID);
+    activateContentParser(_tabID)
+}
 
 function getRandomURL(){
     var url = "https://www.google.co.uk/search?q=" + getCurrentTopic();
-    messageContentParser();
     // G_OPENBUBBLE_SETTING.surfing.links.pop();
     saveSetting();
     return url;
@@ -193,6 +200,7 @@ function getWikipedia_Controversial_Topics() {
     var wikiAPI_RUL = "https://en.wikipedia.org/w/api.php?action=parse&format=json&page=Wikipedia%3AList_of_controversial_issues&prop=links&section=1"; // This is the api address for getting all links on controversial topics.
     getJSON(wikiAPI_RUL,loadNewTopic);
 }
+//TODO: add error hangling for when recieving null
 function loadNewTopic(_status,_response){
     console.log(_response);
     var links = _response.parse.links;
@@ -212,41 +220,30 @@ function getCurrentTopic(){
     var topic = G_OPENBUBBLE_SETTING.topic['title'];
     return topic;
 }
-
-function handleResponse(message) {
-    console.log(`Message from the background script:  ${message.response}`);
+function onExecuted(result) {
+    console.log(`We executed in tab 2`);
 }
 
-function handleError(error) {
+function onError(error) {
     console.log(`Error: ${error}`);
 }
+function  activateContentParser(_tabID) {
+    console.log("in activate parser!!!!!!");
+    portFromCS.postMessage({greeting: "hi extract links please!"});
+    //
+    // var executing = browser.tabs.executeScript(
+    //     _tabID, {
+    //         file: "/contentParser.js"
+    //     });
+    // executing.then(onExecuted, onError);
 
-function messageContentParser(e) {
-    console.log("sending message to content parser!!!!!!");
-    var sending = browser.tabs.sendMessage(
-        1,
-    {
-        parsing_type: 1
-    });
-    sending.then(response => {
-        console.log("Message from the content script:");
-    console.log(response.response);
-}).catch(onError);
 }
-//
-// // sending web requests
-//
-// function messageContentParser() {
-//     console.log("sendong message to content parser");
-//     window.postMessage({
-//         direction: "from-open-bubble",
-//         message: 1 // 1 means a search on google
-//     }, "*");
-// }
-//
-// function handleMessage(request, sender, sendResponse) {
-//     console.log("Message from the content script: " +
-//         request.greeting);
-//     sendResponse({response: "Response from background script"});
-// }
-browser.runtime.onMessage.addListener(handleMessage);
+function connected(p) {
+    portFromCS = p;
+    portFromCS.postMessage({greeting: "hi there content script!"});
+    portFromCS.onMessage.addListener(function(m) {
+        console.log("In background script, received message from content script")
+        console.log(m.greeting);
+    });
+}
+
