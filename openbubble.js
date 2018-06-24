@@ -228,14 +228,14 @@ function onError(error) {
     console.log(`Error: ${error}`);
 }
 function  activateContentParser(_tabID) {
-    console.log("in activate parser!!!!!!");
-    portFromCS.postMessage({greeting: "hi extract links please!"});
+    // console.log("in activate parser!!!!!!");
+    // portFromCS.postMessage({msg_type: "google_search"});
     //
-    // var executing = browser.tabs.executeScript(
-    //     _tabID, {
-    //         file: "/contentParser.js"
-    //     });
-    // executing.then(onExecuted, onError);
+    var executing = browser.tabs.executeScript(
+        _tabID, {
+            file: "/contentParser.js"
+        });
+    executing.then(onExecuted, onError);
 
 }
 function connected(p) {

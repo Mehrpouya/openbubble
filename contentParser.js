@@ -16,8 +16,8 @@
 *   - Change to matches style to only react to search engines.
 *   - When running code in the context of the page, be very careful. The page's environment is controlled by potentially malicious web pages, which can redefine objects you interact with to behave in unexpected ways.
 */
-document.body.style.border = "5px solid blue";
-console.log("hello 1");
+// document.body.style.border = "5px solid blue";
+// console.log("hello 1");
 extractLinks();
 
 function articleExtractor(){
@@ -29,15 +29,16 @@ function extractLinks(){
     // console.log("url is", getURL());
     console.log(Date.now(),"brr");
     console.log(document.body.innerHTML);
-
+    // myPort.postMessage({msg_type: "extract_links",msg:"extracted the links!"});
 
 
 }
-var myPort = browser.runtime.connect({name:"port-from-cs"});
-myPort.postMessage({greeting: "hello from content script"});
-
-myPort.onMessage.addListener(function(m) {
-    console.log("In content script, received message from background script: ");
-    console.log(m.greeting);
-});
+// var myPort = browser.runtime.connect({name:"port-from-cs"});
+// myPort.postMessage({greeting: "hello from content script"});
+//
+// myPort.onMessage.addListener(function(m) {
+//     if(m.msg_type ==="google_search"){
+//         extractLinks();
+//     }
+// });
 

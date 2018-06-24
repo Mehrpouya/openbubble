@@ -34,12 +34,12 @@
   "background": {
     "scripts": ["openbubble.js"]
   }
-,
-
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["contentParser.js"]
-    }
-  ]
+//,
+//
+//  "content_scripts": [
+//    {
+//      "matches": ["<all_urls>"],
+//      "js": ["contentParser.js"]
+//    }
+//  ]
 }
