@@ -164,8 +164,15 @@ function onError(error) {
 function  activateContentParser(_tabID) {
     var executing = browser.tabs.executeScript(
         _tabID, {
-            file: "/contentParser.js"
+            file: "/googleParser.js"
         });
     executing.then(onExecuted, onError);
 }
+
+function handleMessage(request, sender, sendResponse) {
+    console.log("Message from the content script: " +
+        request.results);
+}
+
+browser.runtime.onMessage.addListener(handleMessage);
 

@@ -18,13 +18,13 @@
 */
 // document.body.style.border = "5px solid blue";
 // console.log("hello 1");
-extractLinks();
+extractGoogleResults();
 
 function articleExtractor(){
     console.log("in extractor!!");
 }
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
-function extractLinks(){
+function extractGoogleResults(){
     //check if we're on first tab
     // console.log("url is", getURL());
     console.log(Date.now(),"brr");
