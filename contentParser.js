@@ -28,7 +28,15 @@ function extractLinks(){
     //check if we're on first tab
     // console.log("url is", getURL());
     console.log(Date.now(),"brr");
-    console.log(document.getElementsByClassName("r"));
+    var el = document.createElement( 'html' );
+    el.innerHTML =document.body.innerHTML;
+    var elements = el.getElementsByClassName("r");
+    for (var i = 0;i<elements.length ; i++ ){
+        var elm = elements[i];
+        var firstChild = elm.firstChild
+        console.log(firstChild.href,firstChild.text);
+    }
+    console.log(elements.length);
 
     // myPort.postMessage({msg_type: "extract_links",msg:"extracted the links!"});
 
