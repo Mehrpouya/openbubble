@@ -88,24 +88,6 @@ function getRandomURL(){
 function findMoreLinks(){
 
 }
-/*
-Restart alarm for the currently active tab, whenever the user navigates.
-*/
-// browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-//     if (!changeInfo.url) {
-//     return;
-//     }
-//     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-//     gettingActiveTab.then((tabs) => {
-//         if (tabId == tabs[0].id) {
-//         // restartAlarm(tabId);
-//     }
-//     });
-// });
-
-/*
-Restart alarm for the currently active tab, whenever a new tab becomes active.
-*/
 
 function handleActivated(activeInfo) {
     console.log("Tab " + activeInfo.tabId +
@@ -113,46 +95,7 @@ function handleActivated(activeInfo) {
     // restartAlarm(activeInfo.tabId);
     surf();
 }
-
 browser.tabs.onActivated.addListener(handleActivated);
-
-/*
-restartAlarm: clear all alarms,
-then set a new alarm for the given tab.
-*/
-// function restartAlarm(tabId) {
-//     browser.pageAction.hide(tabId);
-//     browser.alarms.clearAll();
-//     var gettingTab = browser.tabs.get(tabId);
-//     gettingTab.then((tab) =>{
-//         if (tab.url) {
-//         browser.alarms.create("", {delayInMinutes: DELAY});
-//     }
-// });
-// }
-
-/*
-On alarm, show the page action.
-*/
-// browser.alarms.onAlarm.addListener((alarm) => {
-//     var querying = browser.tabs.query({currentWindow:true});
-// querying.then(surf, onError);
-// var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-// gettingActiveTab.then((tabs) => {
-//     browser.pageAction.show(tabs[0].id);
-// });
-// });
-
-//
-// browser.pageAction.onClicked.addListener(() => {
-//     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-//     gettingActiveTab.then((tabs) => {
-//         surf();
-//             // browser.tabs.update(tabs[0].id, {
-//             // active: true
-//         });
-//     });
-//
 
 function onUpdated(tab) {
     console.log(`Updated tab: ${tab.id}`);
