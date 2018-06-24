@@ -12,7 +12,6 @@ Restart alarm for the currently active tab, whenever openbubble.js is run.
 Retrieves controversial topics from wikipedia
 choose one randomly
 */
-var G_DELAY = 100;
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
@@ -20,7 +19,6 @@ var G_STATUS_LIST = Object.freeze({
 var G_OPENBUBBLE_SETTING;
 var portFromCS;
 
-browser.runtime.onConnect.addListener(connected);
 
 InitialiseSetting();
 getWikipedia_Controversial_Topics();
@@ -90,27 +88,20 @@ function getRandomURL(){
 function findMoreLinks(){
 
 }
-var DELAY = 0.1;
-
-var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
-    restartAlarm(tabs[0].id);
-});
-
 /*
 Restart alarm for the currently active tab, whenever the user navigates.
 */
-browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (!changeInfo.url) {
-    return;
-    }
-    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-    gettingActiveTab.then((tabs) => {
-        if (tabId == tabs[0].id) {
-        restartAlarm(tabId);
-    }
-    });
-});
+// browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+//     if (!changeInfo.url) {
+//     return;
+//     }
+//     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+//     gettingActiveTab.then((tabs) => {
+//         if (tabId == tabs[0].id) {
+//         // restartAlarm(tabId);
+//     }
+//     });
+// });
 
 /*
 Restart alarm for the currently active tab, whenever a new tab becomes active.
@@ -119,7 +110,7 @@ Restart alarm for the currently active tab, whenever a new tab becomes active.
 function handleActivated(activeInfo) {
     console.log("Tab " + activeInfo.tabId +
         " was activated");
-    restartAlarm(activeInfo.tabId);
+    // restartAlarm(activeInfo.tabId);
     surf();
 }
 
@@ -129,39 +120,39 @@ browser.tabs.onActivated.addListener(handleActivated);
 restartAlarm: clear all alarms,
 then set a new alarm for the given tab.
 */
-function restartAlarm(tabId) {
-    browser.pageAction.hide(tabId);
-    browser.alarms.clearAll();
-    var gettingTab = browser.tabs.get(tabId);
-    gettingTab.then((tab) =>{
-        if (tab.url) {
-        browser.alarms.create("", {delayInMinutes: DELAY});
-    }
-});
-}
+// function restartAlarm(tabId) {
+//     browser.pageAction.hide(tabId);
+//     browser.alarms.clearAll();
+//     var gettingTab = browser.tabs.get(tabId);
+//     gettingTab.then((tab) =>{
+//         if (tab.url) {
+//         browser.alarms.create("", {delayInMinutes: DELAY});
+//     }
+// });
+// }
 
 /*
 On alarm, show the page action.
 */
-browser.alarms.onAlarm.addListener((alarm) => {
-    var querying = browser.tabs.query({currentWindow:true});
-querying.then(surf, onError);
-var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-gettingActiveTab.then((tabs) => {
-    browser.pageAction.show(tabs[0].id);
-});
-});
+// browser.alarms.onAlarm.addListener((alarm) => {
+//     var querying = browser.tabs.query({currentWindow:true});
+// querying.then(surf, onError);
+// var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+// gettingActiveTab.then((tabs) => {
+//     browser.pageAction.show(tabs[0].id);
+// });
+// });
 
-
-browser.pageAction.onClicked.addListener(() => {
-    var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-    gettingActiveTab.then((tabs) => {
-        surf();
-            // browser.tabs.update(tabs[0].id, {
-            // active: true
-        });
-    });
-
+//
+// browser.pageAction.onClicked.addListener(() => {
+//     var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
+//     gettingActiveTab.then((tabs) => {
+//         surf();
+//             // browser.tabs.update(tabs[0].id, {
+//             // active: true
+//         });
+//     });
+//
 
 function onUpdated(tab) {
     console.log(`Updated tab: ${tab.id}`);
@@ -221,29 +212,17 @@ function getCurrentTopic(){
     return topic;
 }
 function onExecuted(result) {
-    console.log(`We executed in tab 2`);
+    console.log(`We executed in tab `, result);
 }
 
 function onError(error) {
     console.log(`Error: ${error}`);
 }
 function  activateContentParser(_tabID) {
-    // console.log("in activate parser!!!!!!");
-    // portFromCS.postMessage({msg_type: "google_search"});
-    //
     var executing = browser.tabs.executeScript(
         _tabID, {
             file: "/contentParser.js"
         });
     executing.then(onExecuted, onError);
-
-}
-function connected(p) {
-    portFromCS = p;
-    portFromCS.postMessage({greeting: "hi there content script!"});
-    portFromCS.onMessage.addListener(function(m) {
-        console.log("In background script, received message from content script")
-        console.log(m.greeting);
-    });
 }
 

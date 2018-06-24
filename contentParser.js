@@ -28,7 +28,8 @@ function extractLinks(){
     //check if we're on first tab
     // console.log("url is", getURL());
     console.log(Date.now(),"brr");
-    console.log(document.body.innerHTML);
+    console.log(document.getElementsByClassName("r"));
+
     // myPort.postMessage({msg_type: "extract_links",msg:"extracted the links!"});
 
 
