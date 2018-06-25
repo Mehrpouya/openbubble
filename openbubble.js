@@ -118,7 +118,7 @@ function getRandomURL(){
     var links = G_OPENBUBBLE_SETTING.surfing.links;
     var randomIndex = Math.floor(Math.random()*links.length);
     var url = links[randomIndex];
-    G_OPENBUBBLE_SETTING.surfing.links.pop(randomIndex);
+    G_OPENBUBBLE_SETTING.surfing.links.splice(randomIndex,1);
     saveSetting();
     console.log("going to surf: " , url);
     console.log("list of links: ",G_OPENBUBBLE_SETTING.surfing.links);
