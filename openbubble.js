@@ -60,6 +60,7 @@ function checkState() {
             break;
         case G_STATUS_LIST.surfing:
             console.log("surfing");
+            surfTopic();
             break;
         default:
             break;
@@ -83,7 +84,7 @@ function setState(_state) {
 
 
 
-/*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
+//This function will search for the topic in the setting and generates an array of links to look at.
 function searchTopic(){
     console.log("in surf!!");
         var gettingActiveTab = browser.tabs.query({currentWindow: true});
@@ -96,7 +97,35 @@ function searchTopic(){
             });
         updating.then(retrieveLinks(tabs[0].id), onError);
     });
-    // }
+}
+/*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
+function surfTopic(){
+    console.log("in surf!!");
+    var gettingActiveTab = browser.tabs.query({currentWindow: true});
+    //     //How to navigate this new tab and remove it from the list.
+    gettingActiveTab.then((tabs) => {
+        var linkToOpen = getRandomURL();
+    var updating = browser.tabs.update(tabs[0].id, {
+        active: false,
+        url: linkToOpen
+    });
+    updating.then(browsedANewLink, onError);
+});
+}
+
+function getRandomURL(){
+    checkLinks();
+    var links = G_OPENBUBBLE_SETTING.surfing.links;
+    var randomIndex = Math.floor(Math.random()*links.length);
+    var url = links[randomIndex];
+    G_OPENBUBBLE_SETTING.surfing.links.pop(randomIndex);
+    saveSetting();
+    console.log("going to surf: " , url);
+    console.log("list of links: ",G_OPENBUBBLE_SETTING.surfing.links);
+    return url;
+}
+function browsedANewLink(){
+    console.log("browsed another link!!");
 
 }
 function generateSearchURL(){
