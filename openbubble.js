@@ -21,7 +21,7 @@ var portFromCS;
 
 
 InitialiseSetting();
-getWikipedia_Controversial_Topics();
+
 
 //Loads extention setting from Localstorage.
 function LoadSetting(){
@@ -38,10 +38,11 @@ function InitialiseSetting(){
     //TODO: Check logic here if I need to fill the surfing links here or leave it empty and it will get filled via searchig.
     G_OPENBUBBLE_SETTING =
         {
-            status:G_STATUS_LIST.searching,//Always start with searching.};
-            surfing:{links:["http://hadi.link","http://hadi.link/gch_minecraft"]}
+            status:G_STATUS_LIST.searching,//Always start with searching.;
+            surfing:{links:[]}
         }
     saveSetting();
+    checkLinks();//Make srue there are some links ready for surfing the internet.
 }
 
 function saveSetting(){
@@ -51,38 +52,62 @@ function saveSetting(){
 /*
 Check if the state variable has a value, if not try to load it from localstorage. If still no value set it to surfing
  */
-function checkState(){
-
+function checkState() {
+    switch (G_OPENBUBBLE_SETTING.status) {
+        case G_STATUS_LIST.searching:
+            console.log("searching");
+            searchTopic();
+            break;
+        case G_STATUS_LIST.surfing:
+            console.log("surfing");
+            break;
+        default:
+            break;
+    }
+}
+//This will check whether there is any links in the setting and if there isn't, it will add new links to the setting
+function checkLinks(){
+    if (G_OPENBUBBLE_SETTING.surfing.links.length<=0){
+        setState(G_STATUS_LIST.searching);//change status to searching
+        getWikipedia_Controversial_Topics();//get a random topic from wikipedia
+        searchTopic();//search and retrieve links
+    }
+    else
+        setState(G_STATUS_LIST.surfing);
+}
+//Used for changing status of the application. It is a function so in future if changing state becomes more complicated, we can do it in here.
+function setState(_state) {
+    G_OPENBUBBLE_SETTING.status = _state;
+    saveSetting();
 }
 
+
+
 /*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
-function surf(){
+function searchTopic(){
     console.log("in surf!!");
-    // if(surfSetting.links.length>0){
         var gettingActiveTab = browser.tabs.query({currentWindow: true});
         //     //How to navigate this new tab and remove it from the list.
         gettingActiveTab.then((tabs) => {
-            var linkToOpen = getRandomURL();
-    var surfSetting = G_OPENBUBBLE_SETTING.surfing;
-        var updating = browser.tabs.update(tabs[0].id, {
+            var linkToOpen = generateSearchURL();
+            var updating = browser.tabs.update(tabs[0].id, {
                 active: false,
                 url: linkToOpen
             });
-        updating.then(searchedForNewTopic(tabs[0].id), onError);
+        updating.then(retrieveLinks(tabs[0].id), onError);
     });
     // }
 
 }
-function searchedForNewTopic(_tabID){
-    console.log("searching for new topic", _tabID);
-    activateContentParser(_tabID)
-}
-
-function getRandomURL(){
+function generateSearchURL(){
     var url = "https://www.google.co.uk/search?q=" + getCurrentTopic();
     // G_OPENBUBBLE_SETTING.surfing.links.pop();
-    saveSetting();
     return url;
+}
+
+function retrieveLinks(_tabID){
+    console.log("searching for new topic", _tabID);
+    activateContentParser(_tabID)
 }
 //look at what topic we are exploring, search and find new links.
 function findMoreLinks(){
@@ -93,16 +118,12 @@ function handleActivated(activeInfo) {
     console.log("Tab " + activeInfo.tabId +
         " was activated");
     // restartAlarm(activeInfo.tabId);
-    surf();
+    checkState();
 }
 browser.tabs.onActivated.addListener(handleActivated);
 
 function onUpdated(tab) {
     console.log(`Updated tab: ${tab.id}`);
-}
-
-function onError(error) {
-    console.log(`Error: ${error}`);
 }
 
 function updateFirstTab(tabs) {
@@ -172,6 +193,11 @@ function  activateContentParser(_tabID) {
 function handleMessage(request, sender, sendResponse) {
     console.log("Message from the content script: " +
         request.results);
+    var linksList = request.results;
+    for (var index=0; index<linksList.length;index++)
+        G_OPENBUBBLE_SETTING.surfing.links.push(linksList[index].url)
+    setState(G_STATUS_LIST.surfing);//change status to surfing, this function will also automatically save the setting into sessions storage so no need to do it twice.
+    console.log(G_OPENBUBBLE_SETTING.surfing.links,"surfing links!");
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
