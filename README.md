@@ -74,6 +74,9 @@ How to disrupt google knowledge since they know so much about us. for example th
 
 ### Design considerations:
 1. At the moment we are only looking at first pages of each search engine. What are the implications? Does this matter since we are looking at Duckduckgo, Bing, yahoo and google?
+2. Should we extract links from visiting websites too?
+    - Can be dangerous as we don't know what links users or the website has in its content and comments
+
 
 ##Actions
 - Make a list of news providers, distributors accross the board (left, right and center).
