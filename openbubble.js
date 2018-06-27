@@ -15,9 +15,13 @@ choose one randomly
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
+
 var G_SEARCH_SOURCE = Object.freeze({
     "google":0,"duckduckgo":1,"yahoo":2,"bing":3
 });
+
+var G_CURRENT_SEARCH_SOURCE = G_SEARCH_SOURCE.google;
+var G_CURRENT_SEARCH_COMPLETE = true;
 
 var G_OPENBUBBLE_SETTING;
 var portFromCS;
@@ -44,8 +48,9 @@ function InitialiseSetting(){
             status:G_STATUS_LIST.searching,//Always start with searching.;
             surfing:{links:[]}
         }
+    getWikipedia_Controversial_Topics();//get a random topic from wikipedia
     saveSetting();
-    checkLinks();//Make srue there are some links ready for surfing the internet.
+    // checkLinks();//Make srue there are some links ready for surfing the internet.
 }
 
 function saveSetting(){
@@ -82,6 +87,8 @@ function checkLinks(){
 //Used for changing status of the application. It is a function so in future if changing state becomes more complicated, we can do it in here.
 function setState(_state) {
     G_OPENBUBBLE_SETTING.status = _state;
+    if(_state===G_STATUS_LIST.searching)
+        G_CURRENT_SEARCH_COMPLETE=true; // to make sure we can start the search. This is due to asychronous nature of the code so we need to wait until one search is complete before moving to another search engine.
     saveSetting();
 }
 
@@ -89,70 +96,72 @@ function setState(_state) {
 
 //This function will search for the topic in the setting and generates an array of links to look at.
 function searchTopic(){
-    console.log("in surf!!");
-        var gettingActiveTab = browser.tabs.query({currentWindow: true});
+        var gettingActiveTab = browser.tabs.query({currentWindow: true,index:0});
+        console.log("in searchTopic and seach_complete is :" + G_CURRENT_SEARCH_COMPLETE);
+    if(G_CURRENT_SEARCH_COMPLETE) {// if previous search is complete
         //     //How to navigate this new tab and remove it from the list.
-        gettingActiveTab.then((tabs) => {
-            var linkToOpen = generateSearchURL(G_SEARCH_SOURCE.google);
-            var updating = browser.tabs.update(tabs[0].id, {
-                active: false,
-                url: linkToOpen
-            });
-        updating.then(retrieveLinks(tabs[0].id), onError);
-    });
+        gettingActiveTab.then(doSearch,onError);
+    }
 }
-/*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
-function surfTopic(){
-    console.log("in surf!!");
-    var gettingActiveTab = browser.tabs.query({currentWindow: true});
-    //     //How to navigate this new tab and remove it from the list.
-    gettingActiveTab.then((tabs) => {
-        var linkToOpen = getRandomURL();
-    var updating = browser.tabs.update(tabs[0].id, {
+
+function doSearch(_tabs) {
+    var linkToOpen = "";
+console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
+    if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google)
+            linkToOpen = generateSearchURL(G_SEARCH_SOURCE.google);
+    else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.duckduckgo)
+            linkToOpen = generateSearchURL(G_SEARCH_SOURCE.duckduckgo);
+    else{
+            setState(G_STATUS_LIST.surfing);
+            console.log("finished searhcing");
+            G_CURRENT_SEARCH_SOURCE=G_SEARCH_SOURCE.google;
+            return;
+    }
+    console.log("going to open: ", linkToOpen);
+    var updating = browser.tabs.update(_tabs[0].id, {
         active: false,
         url: linkToOpen
     });
-    updating.then(browsedANewLink, onError);
-});
-}
-
-function getRandomURL(){
-    checkLinks();
-    var links = G_OPENBUBBLE_SETTING.surfing.links;
-    var randomIndex = Math.floor(Math.random()*links.length);
-    var url = links[randomIndex];
-    G_OPENBUBBLE_SETTING.surfing.links.splice(randomIndex,1);
-    saveSetting();
-    console.log("going to surf: " , url);
-    console.log("list of links: ",G_OPENBUBBLE_SETTING.surfing.links);
-    return url;
-}
-function browsedANewLink(){
-    console.log("browsed another link!!");
-
+    updating.then(retrieveLinks(_tabs[0].id), onError);
 }
 // this funciton will generate search URL based on source type which can be google, duckduckgo, yahoo or bing
 function generateSearchURL(_source){
     var url = "";
     var topic = getCurrentTopic();
+    console.log("search source is " , _source,"search url is " ,url, "topic is " ,topic);
     switch (_source){
         case G_SEARCH_SOURCE.google:
             url = "https://www.google.co.uk/search?q=" + topic;
             break;
-        case G_STATUS_LIST.duckduckgo:
+        case G_SEARCH_SOURCE.duckduckgo:
             url = "https://duckduckgo.com/?q=" + topic + "&t=h_&ia=web";
             break;
         default:
+            console.log("in default!!!!");
             break;
     }
 
-    // G_OPENBUBBLE_SETTING.surfing.links.pop();
     return url;
 }
 
 function retrieveLinks(_tabID){
-    activateContentParser(_tabID)
+    console.log("in retrieveLinks!");
+    activateRetrieveURLScript(_tabID);
 }
+
+function  activateRetrieveURLScript(_tabID) {
+    var executing = browser.tabs.executeScript(
+        _tabID, {
+            file: "/retrieveURLs.js"
+        });
+    executing.then(retrievedSuccessfully, onError);
+}
+function retrievedSuccessfully(result) {
+    G_CURRENT_SEARCH_COMPLETE=true;
+    G_CURRENT_SEARCH_SOURCE+=1;//use the next search engine
+    console.log(`We executed in tab `, result, "CURRENT_SEARCH_SOURCE " , G_CURRENT_SEARCH_SOURCE);
+}
+
 //look at what topic we are exploring, search and find new links.
 function findMoreLinks(){
 
@@ -171,7 +180,7 @@ function onUpdated(tab) {
 }
 
 function updateFirstTab(tabs) {
-    var gettingActiveTab = browser.tabs.query({currentWindow: true});
+    var gettingActiveTab = browser.tabs.query({index: 0});
     gettingActiveTab.then((tabs) => {
         var updating = browser.tabs.update(tabs[0].id, {
             active: false,
@@ -219,19 +228,41 @@ function getCurrentTopic(){
     var topic = G_OPENBUBBLE_SETTING.topic['title'];
     return topic;
 }
-function onExecuted(result) {
-    console.log(`We executed in tab `, result);
-}
+
 
 function onError(error) {
     console.log(`Error: ${error}`);
 }
-function  activateContentParser(_tabID) {
-    var executing = browser.tabs.executeScript(
-        _tabID, {
-            file: "/retrieveURLsretrieveURLs.js"
-        });
-    executing.then(onExecuted, onError);
+
+
+
+/*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
+function surfTopic(){
+    var gettingActiveTab = browser.tabs.query({currentWindow: true});
+    //     //How to navigate this new tab and remove it from the list.
+    gettingActiveTab.then((tabs) => {
+        var linkToOpen = getRandomURL();
+    var updating = browser.tabs.update(tabs[0].id, {
+        active: false,
+        url: linkToOpen
+    });
+    updating.then(browsedANewLink, onError);
+});
+}
+function browsedANewLink(){
+    console.log("browsed another link!!");
+
+}
+
+
+function getRandomURL(){
+    checkLinks();
+    var links = G_OPENBUBBLE_SETTING.surfing.links;
+    var randomIndex = Math.floor(Math.random()*links.length);
+    var url = links[randomIndex];
+    G_OPENBUBBLE_SETTING.surfing.links.splice(randomIndex,1);
+    saveSetting();
+    return url;
 }
 
 function handleMessage(request, sender, sendResponse) {
