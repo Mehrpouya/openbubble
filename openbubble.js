@@ -17,7 +17,7 @@ var G_STATUS_LIST = Object.freeze({
 });
 
 var G_SEARCH_SOURCE = Object.freeze({
-    "google":0,"duckduckgo":1,"yahoo":2,"bing":3
+    "google":0,"duckduckgo":1,"bing":2,"yahoo":3
 });
 
 var G_CURRENT_SEARCH_SOURCE = G_SEARCH_SOURCE.google;
@@ -111,6 +111,8 @@ console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
             linkToOpen = generateSearchURL(G_SEARCH_SOURCE.google);
     else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.duckduckgo)
             linkToOpen = generateSearchURL(G_SEARCH_SOURCE.duckduckgo);
+    else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.bing)
+        linkToOpen = generateSearchURL(G_SEARCH_SOURCE.bing);
     else{
             setState(G_STATUS_LIST.surfing);
             console.log("finished searhcing");
@@ -136,6 +138,11 @@ function generateSearchURL(_source){
         case G_SEARCH_SOURCE.duckduckgo:
             url = "https://duckduckgo.com/?q=" + topic + "&t=h_&ia=web";
             break;
+        case G_SEARCH_SOURCE.bing:
+            topic = topic.replace(" ", "%2B");
+            url = "    https://www.bing.com/search?q" + topic;
+            break;
+
         default:
             console.log("in default!!!!");
             break;
@@ -271,7 +278,7 @@ function handleMessage(request, sender, sendResponse) {
     var linksList = request.results;
     for (var index=0; index<linksList.length;index++)
         G_OPENBUBBLE_SETTING.surfing.links.push(linksList[index].url)
-    setState(G_STATUS_LIST.surfing);//change status to surfing, this function will also automatically save the setting into sessions storage so no need to do it twice.
+    // setState(G_STATUS_LIST.surfing);//change status to surfing, this function will also automatically save the setting into sessions storage so no need to do it twice.
     console.log(G_OPENBUBBLE_SETTING.surfing.links,"surfing links!");
 }
 
