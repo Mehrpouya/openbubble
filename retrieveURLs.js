@@ -11,9 +11,12 @@
 */
 extractGoogleResults();
 
+
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
 var G_RESULTS=[];
 function extractGoogleResults() {
+    var url = window.location.href;
+    console.log("url is: " + url);
     //check if we're on first tab
     // console.log("url is", getURL());
     console.log(Date.now(), "brr");

@@ -72,6 +72,9 @@ One of the challenges to develop a program that can function meaningfully, i.e. 
 For example when then user starts a new tab, this extension will also refresh its tab and loads new content. In this way we reduce the chance of search engines, social media and data minners to detect the real identity of this tool.
 How to disrupt google knowledge since they know so much about us. for example they know I am yy years old and a father/mother/brother/...! These can be defined as fact.
 
+### Design considerations:
+1. At the moment we are only looking at first pages of each search engine. What are the implications? Does this matter since we are looking at Duckduckgo, Bing, yahoo and google?
+
 ##Actions
 - Make a list of news providers, distributors accross the board (left, right and center).
 - Make a list of consumer products based on the categoris of amazon

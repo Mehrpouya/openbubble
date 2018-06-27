@@ -15,6 +15,9 @@ choose one randomly
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
+var G_SEARCH_SOURCE = Object.freeze({
+    "google":0,"duckduckgo":1,"yahoo":2,"bing":3
+});
 
 var G_OPENBUBBLE_SETTING;
 var portFromCS;
@@ -90,7 +93,7 @@ function searchTopic(){
         var gettingActiveTab = browser.tabs.query({currentWindow: true});
         //     //How to navigate this new tab and remove it from the list.
         gettingActiveTab.then((tabs) => {
-            var linkToOpen = generateSearchURL();
+            var linkToOpen = generateSearchURL(G_SEARCH_SOURCE.google);
             var updating = browser.tabs.update(tabs[0].id, {
                 active: false,
                 url: linkToOpen
@@ -128,14 +131,26 @@ function browsedANewLink(){
     console.log("browsed another link!!");
 
 }
-function generateSearchURL(){
-    var url = "https://www.google.co.uk/search?q=" + getCurrentTopic();
+// this funciton will generate search URL based on source type which can be google, duckduckgo, yahoo or bing
+function generateSearchURL(_source){
+    var url = "";
+    var topic = getCurrentTopic();
+    switch (_source){
+        case G_SEARCH_SOURCE.google:
+            url = "https://www.google.co.uk/search?q=" + topic;
+            break;
+        case G_STATUS_LIST.duckduckgo:
+            url = "https://duckduckgo.com/?q=" + topic + "&t=h_&ia=web";
+            break;
+        default:
+            break;
+    }
+
     // G_OPENBUBBLE_SETTING.surfing.links.pop();
     return url;
 }
 
 function retrieveLinks(_tabID){
-    console.log("searching for new topic", _tabID);
     activateContentParser(_tabID)
 }
 //look at what topic we are exploring, search and find new links.
@@ -214,7 +229,7 @@ function onError(error) {
 function  activateContentParser(_tabID) {
     var executing = browser.tabs.executeScript(
         _tabID, {
-            file: "/googleParser.js"
+            file: "/retrieveURLsretrieveURLs.js"
         });
     executing.then(onExecuted, onError);
 }
