@@ -4,14 +4,6 @@ Author: Hadi Mehrpouya
 Date:   07/03/2018
  */
 
-/*
-TODO:
-- Learn how to send message between content script and background.
-
-Restart alarm for the currently active tab, whenever openbubble.js is run.
-Retrieves controversial topics from wikipedia
-choose one randomly
-*/
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
@@ -114,6 +106,7 @@ console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
     else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.bing)
         linkToOpen = generateSearchURL(G_SEARCH_SOURCE.bing);
     else{
+            removeDuplicates()
             setState(G_STATUS_LIST.surfing);
             console.log("finished searhcing");
             G_CURRENT_SEARCH_SOURCE=G_SEARCH_SOURCE.google;
@@ -139,8 +132,8 @@ function generateSearchURL(_source){
             url = "https://duckduckgo.com/?q=" + topic + "&t=h_&ia=web";
             break;
         case G_SEARCH_SOURCE.bing:
-            topic = topic.replace(" ", "%2B");
-            url = "    https://www.bing.com/search?q" + topic;
+            topic = topic.replace(" ", "+");
+            url = "    https://www.bing.com/search?q=" + topic;
             break;
 
         default:
@@ -167,6 +160,12 @@ function retrievedSuccessfully(result) {
     G_CURRENT_SEARCH_COMPLETE=true;
     G_CURRENT_SEARCH_SOURCE+=1;//use the next search engine
     console.log(`We executed in tab `, result, "CURRENT_SEARCH_SOURCE " , G_CURRENT_SEARCH_SOURCE);
+}
+
+function removeDuplicates(){
+    var uniqueLinks = Array.from(new Set(G_OPENBUBBLE_SETTING.surfing.links));
+    G_OPENBUBBLE_SETTING.surfing.links = uniqueLinks;
+    saveSetting();
 }
 
 //look at what topic we are exploring, search and find new links.
