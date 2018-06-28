@@ -6,10 +6,11 @@ Date:   07/03/2018
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
+//TODO: There's a bug here due to asynchronous. the last engine never gets retrievelinks called. Check
 var G_SEARCH_SOURCE = Object.freeze({
-    "google":0,"duckduckgo":1,"bing":2,"yahoo":3,"finished":0
+    "yahoo":0,"google":1,"duckduckgo":2,"bing":3,"finished":0
 });
-var G_CURRENT_SEARCH_SOURCE = G_SEARCH_SOURCE.google;
+var G_CURRENT_SEARCH_SOURCE = G_SEARCH_SOURCE.yahoo;
 var G_CURRENT_SEARCH_COMPLETE = true;
 var G_OPENBUBBLE_SETTING;
 var portFromCS;
