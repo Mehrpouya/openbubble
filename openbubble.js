@@ -105,6 +105,8 @@ console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
             linkToOpen = generateSearchURL(G_SEARCH_SOURCE.duckduckgo);
     else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.bing)
         linkToOpen = generateSearchURL(G_SEARCH_SOURCE.bing);
+    else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.yahoo)
+        linkToOpen = generateSearchURL(G_SEARCH_SOURCE.yahoo);
     else{
             removeDuplicates()
             setState(G_STATUS_LIST.surfing);
@@ -135,7 +137,10 @@ function generateSearchURL(_source){
             topic = topic.replace(" ", "+");
             url = "    https://www.bing.com/search?q=" + topic;
             break;
-
+        case G_SEARCH_SOURCE.yahoo:
+            topic = topic.replace(" ", "+");
+            url="https://uk.search.yahoo.com/search?p="+topic;
+            break;
         default:
             console.log("in default!!!!");
             break;
