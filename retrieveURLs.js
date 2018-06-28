@@ -16,11 +16,15 @@ identifySearchEngine();
 function identifySearchEngine() {
 
     var url = window.location.href;
-    console.log("google",url.indexOf("google"),"duck",url.indexOf("duckduckgo"));
+    console.log("google",url.indexOf("google"),"duck",url.indexOf("duckduckgo"),"bing",url.indexOf("bing") !== -1,"yahoo",url.indexOf("yahoo") !== -1);
     if(url.indexOf("google") !== -1)
-        extractGoogleResults();
+       return extractGoogleResults();
     else if(url.indexOf("duckduckgo") !== -1)
-        extractDuckDuckGoResults();
+        return extractDuckDuckGoResults();
+    else if(url.indexOf("bing") !== -1)
+        return extractBingResults();
+    else if(url.indexOf("yahoo") !== -1)
+        return extractYahooResults();
 }
 //source https://h3manth.com/content/javascript-one-liner-extracting-unique-words-webpages
 var G_RESULTS=[];
@@ -40,6 +44,7 @@ function extractGoogleResults() {
 
     }
     notifyBackgroundPage(results);
+    return results;
 }
 function extractDuckDuckGoResults() {
     console.log("getting duck links");
@@ -54,6 +59,39 @@ function extractDuckDuckGoResults() {
         results.push({title:elm.text,url:elm.href});
     }
     notifyBackgroundPage(results);
+    return results;
+}
+function extractBingResults() {
+    console.log("getting bing links");
+    console.log(Date.now(), "brr");
+    var el = document.createElement('html');
+    el.innerHTML = document.body.innerHTML;
+    var elements = el.getElementsByClassName("b_algo");
+    var results=[];
+    for (var i = 0; i < elements.length; i++) {
+        var elm = elements[i].firstChild.firstChild;
+        // var firstChild = elm.firstChild;
+        results.push({title:elm.text,url:elm.href});
+    }
+    console.log("bing results",results.length);
+    notifyBackgroundPage(results);
+    return results;
+}
+function extractYahooResults() {
+    console.log("getting yahoo links");
+    console.log(Date.now(), "brr");
+    var el = document.createElement('html');
+    el.innerHTML = document.body.innerHTML;
+    var elements = el.getElementsByClassName("ac-algo");
+    var results=[];
+    for (var i = 0; i < elements.length; i++) {
+        var elm = elements[i];
+        // var firstChild = elm.firstChild;
+        results.push({title:elm.text,url:elm.href});
+    }
+    console.log("yahoo results length! : ",results.length);
+    notifyBackgroundPage(results);
+    return results;
 }
 
 function handleResponse(message) {

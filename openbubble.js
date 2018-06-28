@@ -3,25 +3,18 @@
 Author: Hadi Mehrpouya
 Date:   07/03/2018
  */
-
 var G_STATUS_LIST = Object.freeze({
     "searching":0,"shopping":1,"socializing":2,"surfing":3
 });
-
 var G_SEARCH_SOURCE = Object.freeze({
-    "google":0,"duckduckgo":1,"bing":2,"yahoo":3
+    "google":0,"duckduckgo":1,"bing":2,"yahoo":3,"finished":0
 });
-
 var G_CURRENT_SEARCH_SOURCE = G_SEARCH_SOURCE.google;
 var G_CURRENT_SEARCH_COMPLETE = true;
-
 var G_OPENBUBBLE_SETTING;
 var portFromCS;
 
-
 InitialiseSetting();
-
-
 //Loads extention setting from Localstorage.
 function LoadSetting(){
     console.log("Loading openbubble setting from local storage, if doesn't exist initialise recommended setting");
@@ -47,7 +40,6 @@ function InitialiseSetting(){
 
 function saveSetting(){
     localStorage.setItem('OPENBUBBLE_SETTING', JSON.stringify(G_OPENBUBBLE_SETTING));
-    console.log("saved openbubble_setting to local storage " , localStorage.getItem('OPENBUBBLE_SETTING'));
 }
 /*
 Check if the state variable has a value, if not try to load it from localstorage. If still no value set it to surfing
@@ -55,11 +47,9 @@ Check if the state variable has a value, if not try to load it from localstorage
 function checkState() {
     switch (G_OPENBUBBLE_SETTING.status) {
         case G_STATUS_LIST.searching:
-            console.log("searching");
             searchTopic();
             break;
         case G_STATUS_LIST.surfing:
-            console.log("surfing");
             surfTopic();
             break;
         default:
@@ -89,7 +79,6 @@ function setState(_state) {
 //This function will search for the topic in the setting and generates an array of links to look at.
 function searchTopic(){
         var gettingActiveTab = browser.tabs.query({currentWindow: true,index:0});
-        console.log("in searchTopic and seach_complete is :" + G_CURRENT_SEARCH_COMPLETE);
     if(G_CURRENT_SEARCH_COMPLETE) {// if previous search is complete
         //     //How to navigate this new tab and remove it from the list.
         gettingActiveTab.then(doSearch,onError);
@@ -98,7 +87,6 @@ function searchTopic(){
 
 function doSearch(_tabs) {
     var linkToOpen = "";
-console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
     if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google)
             linkToOpen = generateSearchURL(G_SEARCH_SOURCE.google);
     else if(G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.duckduckgo)
@@ -110,11 +98,9 @@ console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
     else{
             removeDuplicates()
             setState(G_STATUS_LIST.surfing);
-            console.log("finished searhcing");
             G_CURRENT_SEARCH_SOURCE=G_SEARCH_SOURCE.google;
             return;
     }
-    console.log("going to open: ", linkToOpen);
     var updating = browser.tabs.update(_tabs[0].id, {
         active: false,
         url: linkToOpen
@@ -125,7 +111,6 @@ console.log("in do search", G_CURRENT_SEARCH_SOURCE==G_SEARCH_SOURCE.google);
 function generateSearchURL(_source){
     var url = "";
     var topic = getCurrentTopic();
-    console.log("search source is " , _source,"search url is " ,url, "topic is " ,topic);
     switch (_source){
         case G_SEARCH_SOURCE.google:
             url = "https://www.google.co.uk/search?q=" + topic;
@@ -139,7 +124,7 @@ function generateSearchURL(_source){
             break;
         case G_SEARCH_SOURCE.yahoo:
             topic = topic.replace(" ", "+");
-            url="https://uk.search.yahoo.com/search?p="+topic;
+            url="https://search.yahoo.com/search?p="+topic;
             break;
         default:
             console.log("in default!!!!");
@@ -150,7 +135,6 @@ function generateSearchURL(_source){
 }
 
 function retrieveLinks(_tabID){
-    console.log("in retrieveLinks!");
     activateRetrieveURLScript(_tabID);
 }
 
@@ -164,7 +148,6 @@ function  activateRetrieveURLScript(_tabID) {
 function retrievedSuccessfully(result) {
     G_CURRENT_SEARCH_COMPLETE=true;
     G_CURRENT_SEARCH_SOURCE+=1;//use the next search engine
-    console.log(`We executed in tab `, result, "CURRENT_SEARCH_SOURCE " , G_CURRENT_SEARCH_SOURCE);
 }
 
 function removeDuplicates(){
@@ -179,15 +162,12 @@ function findMoreLinks(){
 }
 
 function handleActivated(activeInfo) {
-    console.log("Tab " + activeInfo.tabId +
-        " was activated");
     // restartAlarm(activeInfo.tabId);
     checkState();
 }
 browser.tabs.onActivated.addListener(handleActivated);
 
 function onUpdated(tab) {
-    console.log(`Updated tab: ${tab.id}`);
 }
 
 function updateFirstTab(tabs) {
@@ -221,7 +201,6 @@ function getWikipedia_Controversial_Topics() {
 }
 //TODO: add error hangling for when recieving null
 function loadNewTopic(_status,_response){
-    console.log(_response);
     var links = _response.parse.links;
     var result = 0;
     chooseRandomTopic(links);
@@ -240,12 +219,9 @@ function getCurrentTopic(){
     return topic;
 }
 
-
 function onError(error) {
     console.log(`Error: ${error}`);
 }
-
-
 
 /*This function will surf the web using an array of links to look at. as soon as the array is empty, this can go back into searching to find new links to explore.*/
 function surfTopic(){
@@ -261,10 +237,7 @@ function surfTopic(){
 });
 }
 function browsedANewLink(){
-    console.log("browsed another link!!");
-
 }
-
 
 function getRandomURL(){
     checkLinks();
@@ -277,13 +250,10 @@ function getRandomURL(){
 }
 
 function handleMessage(request, sender, sendResponse) {
-    console.log("Message from the content script: " +
-        request.results);
     var linksList = request.results;
     for (var index=0; index<linksList.length;index++)
         G_OPENBUBBLE_SETTING.surfing.links.push(linksList[index].url)
     // setState(G_STATUS_LIST.surfing);//change status to surfing, this function will also automatically save the setting into sessions storage so no need to do it twice.
-    console.log(G_OPENBUBBLE_SETTING.surfing.links,"surfing links!");
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
