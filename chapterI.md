@@ -1,59 +1,94 @@
 Table of Contents
 =================
 
-[Table of Contents 1](#table-of-contents)
+::: {custom-style="TOC1"}
+[[Table of Contents]{custom-style="Hyperlink"} 1](#table-of-contents)
+:::
 
-[Table of Figures 2](#table-of-figures)
+::: {custom-style="TOC1"}
+[[Table of Figures]{custom-style="Hyperlink"} 2](#table-of-figures)
+:::
 
-[Chapter one : History of the present or a political analysis of
-Knowledge 3](#_Toc518296726)
+::: {custom-style="TOC1"}
+[[Chapter one : History of the present or a political analysis of
+Knowledge]{custom-style="Hyperlink"} 3](#_Toc518642455)
+:::
 
-[Introduction 3](#introduction)
+::: {custom-style="TOC1"}
+[[Introduction]{custom-style="Hyperlink"} 3](#introduction)
+:::
 
-[Abstract 4](#abstract)
+::: {custom-style="TOC1"}
+[[Abstract]{custom-style="Hyperlink"} 5](#abstract)
+:::
 
-[1. Enumeration, simplification and universalism
-5](#enumeration-simplification-and-universalism)
+::: {custom-style="TOC1"}
+[[1. Enumeration, simplification and
+universalism]{custom-style="Hyperlink"}
+6](#enumeration-simplification-and-universalism)
+:::
 
-[1.1 Enumeration - The Man Whose Essence was Plotted by a Thousand
-Numbers
-5](#enumeration---the-man-whose-essence-was-plotted-by-a-thousand-numbers)
+::: {custom-style="TOC2"}
+[[1.1 Enumeration - The Man Whose Essence was Plotted by a Thousand
+Numbers]{custom-style="Hyperlink"}
+6](#enumeration---the-man-whose-essence-was-plotted-by-a-thousand-numbers)
+:::
 
-[1.2 The Science of Muddling Through: Or from Locals to Universals
-6](#the-science-of-muddling-through-or-from-locals-to-universals)
+::: {custom-style="TOC2"}
+[[1.2 The Science of Muddling Through: Or from Locals to
+Universals]{custom-style="Hyperlink"}
+7](#the-science-of-muddling-through-or-from-locals-to-universals)
+:::
 
-[1.3. What do we loose through enumeration and economical development
-7](#what-do-we-loose-through-enumeration-and-economical-development)
+::: {custom-style="TOC2"}
+[[1.3. What do we loose through enumeration and economical
+development]{custom-style="Hyperlink"}
+8](#what-do-we-loose-through-enumeration-and-economical-development)
+:::
 
-[2. Governmentality or science of objectification
-8](#governmentality-or-science-of-objectification)
+::: {custom-style="TOC1"}
+[[2. Governmentality or science of
+objectification]{custom-style="Hyperlink"}
+9](#governmentality-or-science-of-objectification)
+:::
 
-[3. Discussion on Knowledge and information
-10](#discussion-on-knowledge-and-information)
+::: {custom-style="TOC1"}
+[[3. Discussion on Knowledge and information]{custom-style="Hyperlink"}
+11](#discussion-on-knowledge-and-information)
+:::
 
-[Conclusion 11](#conclusion)
+::: {custom-style="TOC1"}
+[[Conclusion]{custom-style="Hyperlink"} 12](#conclusion)
+:::
 
  {#section .ListParagraph}
 
 Table of Figures
 ================
 
-[Figure 1 Analysis of technological determinism (Misa, 1988)
-4](#_Toc518296753)
+::: {custom-style="TableofFigures"}
+[[Figure 1 Analysis of technological determinism (Misa,
+1988)]{custom-style="Hyperlink"} 4](#_Toc518296753)
+:::
 
-[]{#_Toc518296726 .anchor}Chapter one : History of the present or a
+::: {custom-style="Title"}
+[]{#_Toc518642455 .anchor}Chapter one : History of the present or a
 political analysis of Knowledge
+:::
 
 Alternative title: \"profound discontinuity in the history of civilized
-man\" Chandler (1984)
+man\" Chandler (1984)[]{custom-style="CommentReference"}
 
+::: {custom-style="BodyText"}
 *"The Author of Nature writes down the equations, then fixes the
 fundamental constants, and finally chooses a series of boundary
 conditions."* (Hacking, 1990, p.56)
+:::
 
 Introduction
 ============
 
+::: {custom-style="BodyText"}
 Technology is entwined in every aspect of our lives. "*Technologies
 feed, clothe, and provide shelter for us; they transport, entertain, and
 heal us; they provide the bases of wealth and of leisure; they also
@@ -61,7 +96,8 @@ pollute and kill.*" (MacKenzie and Wajcman, 1999, p. 1). Whilst science
 and technology are being examined from variety of perspectives, In many
 of these argumentations there is a trace of technological determinism
 and using "*power language*"(Langdon Winner, 1980, p. 121) is common
-amongst both critiques and appraisers of technology. From a political
+amongst both critiques and appraisers of
+technology[]{custom-style="CommentReference"}. From a political
 viewpoint, it is crucial to objectify the technological determinism as
 it produces a passive attitude and discourages creative engagement with
 technology. From an intellectual standpoint technological determinism
@@ -76,7 +112,9 @@ needs of our societies and communities. A framework that fosters and
 engages not only in crafting and making new technologies but rather it
 is involved in shaping it and influencing it towards improvement of our
 beings, communities and environments.
+:::
 
+::: {custom-style="BodyText"}
 Some of the ideas and the beliefs in technological determinism is well
 captured in a 5 parts 1993 TV series documentary showing the history of
 computers from Babbage to Silicon valley. The tone and narrative of this
@@ -93,7 +131,9 @@ pressures. Hard view however does not take into consideration the effect
 of social pressures and individuals who take the hard view approach,
 believe technology has its own autonomous momentum and force for change.
 (Smith and Marx, 1994)
+:::
 
+::: {custom-style="BodyText"}
 Ulrich Beck in his very influential work in critique of science and
 technology states: "...With good reasons one can proceed from the
 perspective that the history of sciences was always less a history of
@@ -122,8 +162,9 @@ technology. The first wave included scholars such as Marx and Kapp. Kapp
 (1877) was one of the first authors who used the title philosophy of
 technology in the 19^th^ century. The first wave of thinkers were mainly
 concerned with industrial revolution and its consequences. The consensus
-among scholars during this wave was barely dystopian. Only after the
-great war, came along strong voices of criticism and fear of autonomous
+among scholars during this wave was barely
+dystopian[]{custom-style="CommentReference"}. Only after the great war,
+came along strong voices of criticism and fear of autonomous
 technologies began to rise. Obviously there were also positive voices
 such as Franklin and Jefferson "...For them progress meant pursuit of
 technology and science in the interest of human betterment..." (Smith
@@ -138,13 +179,19 @@ in science, unable to recognise the consequences and ethics of his work
 and its creation the monster. Shelly's monster is very similar to how
 Beck (1992) describes early twentieth century role and challenges of
 science in industrial societies.
+:::
 
+::: {custom-style="BodyText"}
 ![](media/image1.png){width="6.6930555555555555in"
 height="3.911111111111111in"}
+:::
 
-[]{#_Toc518296753 .anchor}Figure 1 Analysis of technological determinism
+::: {custom-style="Caption"}
+[]{#_Toc518296753 .anchor}Figure Analysis of technological determinism
 (Misa, 1988)
+:::
 
+::: {custom-style="BodyText"}
 Misa (1988, p. 310) identifies four major groups of philosophers of
 technology who technological determinism can be traced in their work.
 *"...as a justification for their field, as a theory to be elaborated
@@ -155,7 +202,9 @@ of business, cities and science specially between 1977 to mid-eighties.
 This decade is portrayed by Misa (1988) as the time where most
 historians saw technology the causal force for change in our societies
 or at least in Western societies.
+:::
 
+::: {custom-style="BodyText"}
 Whilst many scholars since mid eighties have been emphasising on the
 importance of objectifying determinism, it is also important to remember
 that technology should not be considered as both the sole problem maker
@@ -171,41 +220,69 @@ Heidegger defines it as (1961, p. 14) "*Physis is being itself, by
 virtue of which essents become and remain observable... Physis means the
 power that emerges and the enduring realm under its sway. This power of
 emerging and enduring includes \"becoming\" as well as \"being\"*".
-Heidegger compares the word "is" in language to being. He provides
-several examples in spoken language where in each sentence "is" has a
-different meaning for example The car is mine (belongs to), The book is
-in the library (located), the ring is of gold (made of), etc... In all
-these examples and many more, "is" contains a prolific multiplicity of
-meanings. Similarly for "being" the definite range of meaning contained
-by "the sphere of actuality and presence, of permanence and duration, of
-abiding and occurrence." (Heidegger, 1961, p. 92). Similarly if we were
-to understand and define the essence of technology, this does not mean
-any specific technological thing. What Heidegger tries to clarify is
-questioning the basis and definitions of what we perceive as technology
-and our relationship with it. He believed (Heidegger, 1977, p. 26) "when
-we once open ourselves expressly to the essence of technology, we find
-ourselves unexpectedly taken into a freeing claim.". whether we are
-objectifying or praising it. As shown in the example above with the
-multiplicity of meaning, similarly the widely agreed and used definition
-of technology as a human activity or a means to an end is also merely an
-instrumental definition and does not overlay the real truth about the
-essence of technology. What Heidegger is trying to free us from is
-thinking everything through the medium of technology, instead of having
-a free relationship with it. In his early works until 1955 his work is
-arguably has a romantic anti technology and anti consumerism approach,
-potentially due to war effect similar to other science and technology
-critics after the great war and second world war. In his later work on
-the contrary he states that the emphasis on the loss and destruction
-cause by technology is technological (Dreyfus and Wrathall, 2002).
+:::
 
+One of Heidegger projects was to redefine the concept of "being" as he
+believed this would help us to understand and justify our relationship
+with many other constructs and things such as technology. In being and
+time (Heidegger, 1996) he applies a phenomenological method where he
+attempts to define being through a temporal study of human experience.
+The ontological approach that he took in being and time however was not
+complete and he did not manage to complete the task of redefining being.
+In introduction to metaphysics, he tried to continue with his enterprise
+however he ended up presenting a detailed critique of western philosophy
+and hitherto did not manage to provide a complete understanding of
+being. Heidegger compares the word "is" in language to being. He
+provides several examples in spoken language where in each sentence "is"
+has a different meaning for example The car is mine (belongs to), The
+book is in the library (located), the ring is of gold (made of), etc...
+In all these examples and many more, "is" contains a prolific
+multiplicity of meanings. Similarly for "being" the definite range of
+meaning contained by "the sphere of actuality and presence, of
+permanence and duration, of abiding and occurrence." (Heidegger, 1961,
+p. 92). Similarly if we were to understand and define the essence of
+technology, this does not mean any specific technological thing. What
+Heidegger tries to clarify is questioning the basis and definitions of
+what we perceive as technology and our relationship with it. He believed
+(Heidegger, 1977, p. 26) "when we once open ourselves expressly to the
+essence of technology, we find ourselves unexpectedly taken into a
+freeing claim.". whether we are objectifying or praising it. As shown in
+the example above with the multiplicity of meaning, similarly the widely
+agreed and used definition of technology as a human activity or a means
+to an end is also merely an instrumental definition and does not overlay
+the real truth about the essence of technology. What Heidegger is trying
+to free us from is thinking everything through the medium of technology,
+instead of having a free relationship with it. In his early works until
+1955 his work is arguably has a romantic anti technology and anti
+consumerism approach, potentially due to war effect similar to other
+science and technology critics after the great war and second world war.
+In his later work on the contrary he states that the emphasis on the
+loss and destruction cause by technology is technological (Dreyfus and
+Wrathall, 2002)[]{custom-style="CommentReference"}. Heidegger emphases
+on the dangers of technological thinking "In this dawning atomic age a
+far greater danger threatens-precisely when the danger of a third world
+war has been removed. A strange assertion! Strange indeed, but only as
+long as we do not meditate. In what sense is the statement just made
+valid? This assertion is valid in the sense that the approaching tide of
+technological revolution in the atomic age could so captivate, bewitch,
+dazzle, and beguile man that calculative thinking may someday come to be
+accepted and practiced as the only way of thinking." (1966, p. 56) . The
+technological thinking is when we loose the ability to mediate and the
+idea of subjectivity and objectivity becomes more fluid and
+
+::: {custom-style="BodyText"}
 Techne is "...denotes neither art nor technology but a knowledge, the
 ability to plan and organize freely, to masterinstitutions (cf. Plato\'s
 Phaedrus). Technê is creating, building in the sense of a deliberate
 pro-ducing." (Heidegger, 1961, p. 11)
+:::
 
+::: {custom-style="BodyText"}
 Need to write about second and third wave. Second wave post great war
 and third more recent with people like Harraway...
+:::
 
+::: {custom-style="BodyText"}
 Winner (1980) calls for more holistic study of technology and to look at
 technology through a combination of these approaches. Scholars who
 suggest technologies are politically neutral and it is the societies who
@@ -222,14 +299,18 @@ technology is directly or indirectly affecting every aspects of our life
 and society it is important to develop a firm understanding of
 technological change and how it is shaped and formed within our
 societies.
+:::
 
+::: {custom-style="BodyText"}
 One popular explanation of what shapes technology is the view that
 suggest technology is shaped and formed based on scientific discoveries
 and explorations.
+:::
 
 Abstract
 ========
 
+::: {custom-style="BodyText"}
 This chapter looks at the last 400 years of enumeration, high modernism
 and financialisation to provide a map of inter-related actors that
 created the world the way it is today. This will be through three
@@ -243,13 +324,17 @@ changes and approaches to individuals, society and community have
 changed our relationships not just with one another, but with the world
 to an extensive level. The purpose for the next two chapters are to
 identify some concerns and challenges caused by science and technology?
+:::
 
 1. Enumeration, simplification and universalism
 ===============================================
 
+::: {custom-style="BodyText"}
 "Every state happy or unhappy, was statistical in its own way." (Scott,
 1998, p.16)
+:::
 
+::: {custom-style="BodyText"}
 This section examines the dichotomy between localized forms of situated
 knowledge and coercive, universal ones crafted by institutions of
 liberal democratic regimes. The first section briefly explores the
@@ -261,7 +346,9 @@ chapter will look technology, finance and financializaiton. Finally,
 this section provides some suggestions and arguments towards certain
 changes and approaches that could develop new forms of design thinking,
 leading ultimately to more commensurable knowledge networks.
+:::
 
+::: {custom-style="BodyText"}
 I would like to begin this section by summarising a story by Georges
 Perec, Life: A User\'s Manual (1978): in his book Perec, tells the story
 of a millionaire in an apartment block, paused in time with an exquisite
@@ -278,7 +365,9 @@ main character is running away from a person who is trying to stop him
 from ruining all the artworks. The millionaire dies whilst holding a
 puzzle piece in a shape of the letter "W", however the last remaining
 piece of the puzzle is in the shape of letter X.
+:::
 
+::: {custom-style="BodyText"}
 This story is a prescient metaphor for our data-centred contemporary
 lives. If we replace the characters and the style of the game, taking a
 moment to reflect on it and compare it to big-data society with
@@ -296,16 +385,20 @@ categorized, simplified, and reductive individuals. James C. Scott
 is outside of the scope of this chapter (see: Urry, 2004; Cresswell,
 1993; Adams, 1999), the other two sub-processes will be discussed in the
 next sections
+:::
 
 1.1 Enumeration - The Man Whose Essence was Plotted by a Thousand Numbers 
 --------------------------------------------------------------------------
 
+::: {custom-style="BodyText"}
 *"Legibility is a condition of manipulation. Any substantial state
 intervention in society \... requires the invention of units that are
 visible. The units in question might be citizens, villages, trees,
 fields, houses, or people grouped according to age, depending on the
 type of intervention"* (Scott, 1998, p.183)
+:::
 
+::: {custom-style="BodyText"}
 Charles Babbage writing in 1832 noted the importance of collecting
 numbers, calling it "the constants of Nature and of Art" (Babbage,
 1832). His idea was to summon the list of all facts that could be
@@ -324,7 +417,9 @@ main strategies of state power over the last two hundred years. He
 follows the traces of these strategies not only in the administration of
 nature such as the German engineering of forests, or the development of
 new beehives, but also in identification of their residents.
+:::
 
+::: {custom-style="BodyText"}
 Again, this become normalized to the extent that the notion of surnames
 as modes of identification has become so embedded in everyday life that
 it is almost taken as *a priori*. Traditionally, surnames names were
@@ -353,17 +448,21 @@ science and technology "progress", emergency powers that sprang up at
 difficult times such as war and famine which gives them unquestionable
 power to initiate utopian/heterotopian ideas and social engineering
 projects and lastly weak citizen mobilisation, engagement and power.
+:::
 
 1.2 The Science of Muddling Through: Or from Locals to Universals
 -----------------------------------------------------------------
 
+::: {custom-style="BodyText"}
 *"...The existence of French men and women around 1790 was made
 miserable by, among other things, 700 or 800 differently named measures
 and untold units of the same name but different sizes. A \"**pinte\" in
 Paris came to 0.93 liter; in Saint-Denis, to 1.46; in Seine-en-Montagne,
 to 1.99; in Précy-sous-Thil, to 3.33. The aune, a unit of length, was
 still more prolific: Paris had three"* (Frängsmyr et al., 1990, p.207)
+:::
 
+::: {custom-style="BodyText"}
 The above quote is an example of local knowledge forms, and their
 commensurability depending on where, and how, and which community is
 subjected to them. There is also a trace of universalism in the
@@ -393,7 +492,9 @@ cadastral map, censuses and "standardized units of measurement" (Scott,
 worlds stable. Such mechanisms of making the world legible not only
 concern how the world was viewed, but also how it was produced and
 appropriated.
+:::
 
+::: {custom-style="BodyText"}
 Such processes, in place since the beginning of the 16th century, have
 been responsible for dramatic changes in the government and management
 of life, both from individual and national perspectives (Hacking, 1990).
@@ -414,7 +515,9 @@ all four categories Hacking (1990) traces the imperialism of
 probabilities. The success of these categories is ultimately proven by
 the fact that they have profoundly altered the direction and perception
 of society.
+:::
 
+::: {custom-style="BodyText"}
 One would expect the relationship between indeterminism and statistics
 to be an opposing equation, however it is the opposite: the recognition
 of indeterminism results in greater statistical control. This is
@@ -426,16 +529,20 @@ simplifications do not only remain as numbers or statistics, rather they
 turn into policies, politics, and affective emotions, ultimately
 creating a social realm in which we live under the shadow of
 numbers.[^3]
+:::
 
 addaddNotes + explanation of essense and appearance\....
 
 1.3. What do we loose through enumeration and economical development
 --------------------------------------------------------------------
 
+::: {custom-style="BodyText"}
 *"Market culture undermines traditional communities wherever it
 penetrates -- just as it has undermined community on its home turf for
 the last four hundred years"*(Marglin, 2008, p.246)
+:::
 
+::: {custom-style="BodyText"}
 Marglin (2008, p.245) believes that since the last decades of 15^th^
 century (beginning of the age of western exploration) imperialism,
 development, and globalisation were the three inter linked prominent
@@ -445,19 +552,25 @@ simplification and universalism and how enumeration is the technology of
 governance. This section I will draw an image of some of the intended
 and unintended consequences of such practices. I would like to start
 this section by a story from development of sports wear in China.
+:::
 
+::: {custom-style="BodyText"}
 Athletic shoes is the US is a \$15 billion industry with about 107
 million pairs being bought for children in America (The Washington Post,
 2002, p.4), Marglin (2008, p.228) goes further into the details of
 production and supply chain:
+:::
 
+::: {custom-style="BodyText"}
 *"An \$80 pair of sneakers includes perhaps \$3.00 of wages for a worker
 in China, South or Southeast Asia, or the Caribbean -- less than 4% of
 the total price. The rest is materials (say \$11), rent and other
 operating costs of the factory owner (another \$3), and the profits of
 factory owner (another \$2 or so). All this brings the cost to Nike ...
 to \$18."*
+:::
 
+::: {custom-style="BodyText"}
 In this case study, one can see a large profit and income inequity
 between the Eastern manufacturers and Western brands and distributers.
 Another hidden element here is the distance and a sense of disconnection
@@ -477,7 +590,9 @@ form of "\...shared participation in producing and exchanging goods and
 services; about governing, entertaining, and mourning; and about
 generating and regenerating people physically, morally and spiritually."
 .....
+:::
 
+::: {custom-style="BodyText"}
 Just as Hacking (1990) argued that enumeration and statistics was a
 technology that has been used in colonies, it then later on became a
 technology for governing their own population, another technology of
@@ -495,38 +610,52 @@ central question here would be "how we as a community, designers,
 technologists and scientists would position ourselves in the spectrum
 between community and globalisation, between deliberation and consensus,
 between participation and representation?"
+:::
 
 2. Governmentality or science of objectification
 ================================================
 
+::: {custom-style="BodyText"}
 *"Social power of a collective is a function of the distribution of
 knowledge over the collective"* (Bellamy, 1993, p.211)
+:::
 
+::: {custom-style="BodyText"}
 Foucault in mid 70s published two major works: Discipline and Punish
 (Foucault, 1991) and History of Sexuality (Foucault, 1984; Foucault,
 1992; Foucault, 1990). The former work were more concerned with the role
 of body and soul as the locus for the practice of power, the move from
 traditional forms of torture to newer forms. In that work Foucault
 emphasised 4 guidelines in the study of power:
+:::
 
-1.  Study of punitive mechanisms has to look both at punitive mechanisms
+1.  ::: {custom-style="BodyText"}
+    Study of punitive mechanisms has to look both at punitive mechanisms
     on their "repressive" as well as possible positive effects. For
     instance punishment then would be regarded as a complex social
     function.
+    :::
 
-2.  Punitive methods should not be considered simply as a causation of
+2.  ::: {custom-style="BodyText"}
+    Punitive methods should not be considered simply as a causation of
     legislation but also as specialised techniques or in Foucault\'s
     words political tactic.
+    :::
 
-3.  History of penal law and human sciences may derive from same source
+3.  ::: {custom-style="BodyText"}
+    History of penal law and human sciences may derive from same source
     a single process of "epistemologico-juridical" formation; in short,
     Foucault believe that technology of power should be one of the
     prominent principles of both study of the humanization of the penal
     system and of the knowledge of man.
+    :::
 
-4.  In short, punitive methods should be studied as a history of power
+4.  ::: {custom-style="BodyText"}
+    In short, punitive methods should be studied as a history of power
     relations and object relations. (Foucault, 1991)
+    :::
 
+::: {custom-style="BodyText"}
 Both of the works mentioned above concerned with the importance of
 keeping an analytical eye on the exercise of power as not just a
 negative or repressive force, but also their metamorphosis. What
@@ -561,14 +690,18 @@ formed through use of numbers, laws, legislations, sovereignty and other
 technologies of government. Instead of government being about
 sovereignty of the prince over a territory it became about meeting ends
 and specific certitudes. (Foucault et al., 1991)
+:::
 
+::: {custom-style="BodyText"}
 *"Wisdom, understood no longer in the traditional sense as knowledge of
 divine and human laws, of justice and equality, but rather as the
 knowledge of things, of the objectives that can and should be attained,
 and the disposition of things required to reach them; it is this
 knowledge that is to constitute the wisdom of the sovereign."(Foucault
 et al., 1991, p.96)*
+:::
 
+::: {custom-style="BodyText"}
 It is useful to also mention a text referred to by Foucault: Le miroir
 politique from 1555 (Dexter, 1955) where La Perrière defined government
 as "the right disposition of things, arranged so as to lead to a
@@ -608,7 +741,9 @@ would become authoritative and intelligable. This approach to power
 would allow us to develop a better understanding of why and how our
 financial system is the way it is today and how we can develop ways to
 engage with it, scrutinise and understand it?
+:::
 
+::: {custom-style="BodyText"}
 Howells defined knowledge as "Knowledge can be defined as a dynamic
 framework or structure from which information can be stored, processed
 and understood."(Howells, 2002, p.872). What should be remembered here
@@ -620,7 +755,9 @@ through some quantified measures which she calls technologies of hubris.
 The purpose of these technologies is to provide confidence and certainty
 within the society, as oppose to technologies of humility which they are
 about bringing doubt and uncertainty. (Newell, 2012; Jasanoff, 2005)
+:::
 
+::: {custom-style="BodyText"}
 In previous sections, we discussed some of the un/intented consequences
 of technological advancements and enumeration. Bill Joy, one of the
 chief scientinst at Sun Microsystems raises an important point about
@@ -677,7 +814,9 @@ of population. Rose goes on into discussing how these enumerations could
 be used as political "social technologies", which is the very same track
 traced by other scholars in many other disciplines such as (ADD
 AGRICULTURE, STS, \...).
+:::
 
+::: {custom-style="BodyText"}
 Technologies of the hubris or "administrative ordering of nature and
 society" according to Scot (Scott, 1998, p.4) is one of the four
 elements that contributes to the birth of modern states that tend to
@@ -698,10 +837,12 @@ thumbs and no fingers", with anthropologists, socialogists and social
 researchers out of breath left behind in the "field". This even makes it
 more important for a new sets of technologies as Jasanoff calles them
 "technologies of humility".
+:::
 
 3. Discussion on Knowledge and information
 ==========================================
 
+::: {custom-style="BodyText"}
 *"\...But with the repression of political life in the land as a whole,
 \...without unrestricted freedom of press and assembly, without a free
 struggle of opinion, life dies out in every public institution, becomes
@@ -709,7 +850,9 @@ a mere semblance of life, in which only the bureaucracy remains as the
 active element. Public life gradually falls asleep, a few dozen party
 leaders of inexhaustible energy and boundless experience direct and
 rule."*(Luxemburg, 1992, p.72)
+:::
 
+::: {custom-style="BodyText"}
 Polanyi defines two types of knowledge, tacit and explicit. Explicit is
 when there is no need to experience the knowledge directly and it can be
 reproduced through use of mediums, for instance language. Tacit
@@ -725,68 +868,122 @@ something that can be purchased and Priori is something that acquired
 through contracts R&D and research agreements according. There is also
 another strategy to acquire knowledge which is employing knowledge
 labour directy (i.e. scientists, researchers and so on).
+:::
 
+::: {custom-style="BodyText"}
 The main purpose of these methods are to bring into attention the long
 term, intended and unintended consequences of new developments. This can
 be followed from four perspectives as Jasanoff argues, framing analysis,
 vulnerability, distribution and learning.
+:::
 
+::: {custom-style="BodyText"}
 Flow of information between individuals
+:::
 
+::: {custom-style="BodyText"}
 Knowledge spillovers
+:::
 
+::: {custom-style="BodyText"}
 Leaks
+:::
 
+::: {custom-style="BodyText"}
 interpretation
+:::
 
+::: {custom-style="BodyText"}
 acquisition
+:::
 
+::: {custom-style="BodyText"}
 knowledge movement
+:::
 
+::: {custom-style="BodyText"}
 Ownership and secrecy
+:::
 
+::: {custom-style="BodyText"}
 Temporality of knowledge
+:::
 
+::: {custom-style="BodyText"}
 when should knowledge be shared
+:::
 
+::: {custom-style="BodyText"}
 time between codified knowledge and interpretation and digestion time.
+:::
 
+::: {custom-style="BodyText"}
 internal & external forms of knowledge transfer
+:::
 
+::: {custom-style="BodyText"}
 Knowledge spillovers
+:::
 
--   Trade as a process that transfers knowledge through goods
+-   ::: {custom-style="BodyText"}
+    Trade as a process that transfers knowledge through goods
+    :::
 
--   Movement of individuals with their learned knowledge
+-   ::: {custom-style="BodyText"}
+    Movement of individuals with their learned knowledge
+    :::
 
+::: {custom-style="BodyText"}
 Economy of knowledge: Demand, consumption and production of knowledge
+:::
 
+::: {custom-style="BodyText"}
 Affective knowledge
+:::
 
+::: {custom-style="BodyText"}
 Geography
+:::
 
+::: {custom-style="BodyText"}
 State
+:::
 
+::: {custom-style="BodyText"}
 culture
+:::
 
+::: {custom-style="BodyText"}
 Now in order to understand the level of spillover types of knowledge
 available to us about the financial sector, we need to look at the
 regulation and legislation in the UK about the financial institutions.
 This will be focus of next section.
+:::
 
+::: {custom-style="BodyText"}
 Information and confirmaiton bias
+:::
 
+::: {custom-style="BodyText"}
 consensuse and discursive.
+:::
 
+::: {custom-style="BodyText"}
 Represantative and minority issue
+:::
 
+::: {custom-style="BodyText"}
 prejeduces
+:::
 
+::: {custom-style="BodyText"}
 Knowledge exchange strategies
+:::
 
 Conclusion
 ==========
 
+::: {custom-style="BodyText"}
 *"To be governed is to be watched over, inspected, spied on, directed,
 legislated, regimented, closed in, indoctrinated, preached at,
 controlled, assessed, evaluated, censored, commanded; all by creatures
@@ -795,7 +992,9 @@ governed means that at every move, operation, or transaction one is
 noted, registered, entered in a census, taxed, stamped, priced,
 assessed, patented, licensed, authorized, recommended, admonished,
 prevented, reformed, set right, corrected."(Chomsky, 2003, p.17)*
+:::
 
+::: {custom-style="BodyText"}
 Bhagwati (2007) one of the defenders of the globalisation, provides wide
 range of reasons to why globalisation is a positive force and it should
 be supported and inforced further, however he fails to justify his
@@ -821,7 +1020,9 @@ the "public peace" becomes possible not through the force of police,
 architectural planning, but through a "network of voluntarily controls
 and standards among the people themselves, and enforced by the people
 themselves."
+:::
 
+::: {custom-style="BodyText"}
 If we refer to all dynamic, practical knowledge forms as metis, looking
 at some complex human interactions shows the complexity of acuiring
 metis, for example a boxer who needs to learn many automatic responses
@@ -836,40 +1037,57 @@ fact that there are hundreds of organisations being specialist as puzzle
 makers who put the dispersed information togethwer to develop an image
 of an organisaiton, like corporatewatch, IRIS, Ethical screening as so
 on.
+:::
 
+::: {custom-style="BodyText"}
 So the cruicial question to consider is:
+:::
 
+::: {custom-style="BodyText"}
 How design can foster a new relationship with technology, a relationship
 that can offer a commensurable space for communities to take advantage
 of technology. Technologies that support community practices and their
 actor-hood and not technologies who support certain actor-hood that fits
 into the categorised and simplified communities of the googles and
 facebooks.
+:::
 
+::: {custom-style="BodyText"}
 Next chapter will look at Knowledge forms available within Britain about
 the financial sector, who produce them and their relationship with
 gevening technologies of British governement. Only after these two
 analysis we will be able to think about ways that can offer new
 techniques of citizen participation and deliberation which will be the
 focus of chapter 3.
+:::
 
-[^1]: For examples of statistics about colonies see Necochea López
-    (2010), in Britain and India (Cohn, 1996). In Scotland this was
-    instigated largely by Sinclair (Sinclair, 1791). For the
-    anthropological study of colonialism see Pels (1997).
+[^1]: ::: {custom-style="FootnoteText"}
+    []{custom-style="FootnoteCharacters"} For examples of statistics
+    about colonies see Necochea López (2010), in Britain and India
+    (Cohn, 1996). In Scotland this was instigated largely by Sinclair
+    (Sinclair, 1791). For the anthropological study of colonialism see
+    Pels (1997).
+    :::
 
-[^2]: The first life insurance policy was issued in England in 1583
-    (Raynes, 1948, p.113)
+[^2]: ::: {custom-style="FootnoteText"}
+    []{custom-style="FootnoteCharacters"} The first life insurance
+    policy was issued in England in 1583 (Raynes, 1948, p.113)
+    :::
 
-[^3]: Although outside of the purview of this short paper it should be
-    noted that the application of the politics of enumeration has been
-    seen across all sectors of the social, from agriculture (Fitzgerald,
-    2005a; Fitzgerald, 2005b), economy and community (Marglin, 2008), to
-    art and science238).anoff, 2003, p.that is where the public are
-    fully engaged in the process of knowledge production. She argues or
-    doing so sh)
+[^3]: ::: {custom-style="FootnoteText"}
+    []{custom-style="FootnoteCharacters"} Although outside of the
+    purview of this short paper it should be noted that the application
+    of the politics of enumeration has been seen across all sectors of
+    the social, from agriculture (Fitzgerald, 2005a; Fitzgerald, 2005b),
+    economy and community (Marglin, 2008), to art and science238).anoff,
+    2003, p.that is where the public are fully engaged in the process of
+    knowledge production. She argues or doing so sh)
+    :::
 
-[^4]: We separate different communities by their expertise, such as
-    policy-makers, experts, scientific community and then we have
-    general public which sounds like a public with no purpose or
-    expertise which only suffice the role of being a consumer.
+[^4]: ::: {custom-style="FootnoteText"}
+    []{custom-style="FootnoteCharacters"} We separate different
+    communities by their expertise, such as policy-makers, experts,
+    scientific community and then we have general public which sounds
+    like a public with no purpose or expertise which only suffice the
+    role of being a consumer.
+    :::
