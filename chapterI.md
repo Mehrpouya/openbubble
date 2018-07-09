@@ -187,7 +187,7 @@ height="3.911111111111111in"}
 :::
 
 ::: {custom-style="Caption"}
-[]{#_Toc518296753 .anchor}Figure Analysis of technological determinism
+[]{#_Toc518296753 .anchor}Figure 1 Analysis of technological determinism
 (Misa, 1988)
 :::
 
@@ -240,41 +240,105 @@ In all these examples and many more, "is" contains a prolific
 multiplicity of meanings. Similarly for "being" the definite range of
 meaning contained by "the sphere of actuality and presence, of
 permanence and duration, of abiding and occurrence." (Heidegger, 1961,
-p. 92). Similarly if we were to understand and define the essence of
-technology, this does not mean any specific technological thing. What
-Heidegger tries to clarify is questioning the basis and definitions of
-what we perceive as technology and our relationship with it. He believed
-(Heidegger, 1977, p. 26) "when we once open ourselves expressly to the
-essence of technology, we find ourselves unexpectedly taken into a
-freeing claim.". whether we are objectifying or praising it. As shown in
-the example above with the multiplicity of meaning, similarly the widely
-agreed and used definition of technology as a human activity or a means
-to an end is also merely an instrumental definition and does not overlay
-the real truth about the essence of technology. What Heidegger is trying
-to free us from is thinking everything through the medium of technology,
-instead of having a free relationship with it. In his early works until
-1955 his work is arguably has a romantic anti technology and anti
-consumerism approach, potentially due to war effect similar to other
-science and technology critics after the great war and second world war.
-In his later work on the contrary he states that the emphasis on the
-loss and destruction cause by technology is technological (Dreyfus and
-Wrathall, 2002)[]{custom-style="CommentReference"}. Heidegger emphases
-on the dangers of technological thinking "In this dawning atomic age a
-far greater danger threatens-precisely when the danger of a third world
-war has been removed. A strange assertion! Strange indeed, but only as
-long as we do not meditate. In what sense is the statement just made
-valid? This assertion is valid in the sense that the approaching tide of
+p. 92). Similarly, if we were to understand and define the essence of
+technology, this does not mean any specific technological thing. Since
+technology existed as long as civilizations, what Heidegger tries to
+clarify is questioning the basis and definitions of what we perceive as
+technology and our relationship with it. He believed (Heidegger, 1977,
+p. 26) "when we once open ourselves expressly to the essence of
+technology, we find ourselves unexpectedly taken into a freeing claim.".
+As shown in the example above with the multiplicity of meaning,
+similarly the widely agreed and used definition of technology as a human
+activity or a means to an end is also merely an instrumental definition
+and does not overlay the real truth about the essence of technology.
+What Heidegger is trying to free us from is thinking everything through
+the medium of technology, instead of having a free relationship with it.
+In his early works until 1955 his work is arguably has a romantic
+anti-technology and anti-consumerism approach, potentially due to war
+effect similar to other science and technology critics after the Great
+War and Second World War. In his later work on the contrary he states
+that the concern and worries on the loss and destruction caused by
+technology is merely a technological thinking (Dreyfus and Wrathall,
+2002)[]{custom-style="CommentReference"}. Heidegger emphases on the
+dangers of technological thinking "In this dawning atomic age a far
+greater danger threatens-precisely when the danger of a third world war
+has been removed. A strange assertion! Strange indeed, but only as long
+as we do not meditate. In what sense is the statement just made valid?
+This assertion is valid in the sense that the approaching tide of
 technological revolution in the atomic age could so captivate, bewitch,
 dazzle, and beguile man that calculative thinking may someday come to be
 accepted and practiced as the only way of thinking." (1966, p. 56) . The
-technological thinking is when we loose the ability to mediate and the
-idea of subjectivity and objectivity becomes more fluid and
+technological thinking is when we lose our ability to mediate and the
+idea of subjectivity and objectivity becomes more fluid. Tiqqun (2001,
+p. 3) reminds us of this danger by stating that majority of critical
+thinkers of our time are negligent of the rise of "*cybernetics as a new
+technology of government*". He later states that the cybernetics is
+based on the projection that all things (humans and non-humans) and
+their relationships are inherently algorithmically conditioned and
+reconditionable. This is what Foucault referred to as "piloting" (2005,
+p. 249) a model consisting of three techniques medicine, political
+government and government of the self. Foucault refers to the post
+twentieth century piloting as "governmentality" (Foucault et al., 1991,
+p. 102). The change that occurs during this century and beyond is the
+fact that the piloting is not merely concerned with self and others but
+it is concerned with everything. In July 2014 UK government introduced a
+new legislation Data Retention and Investigatory Powers Act 2014 (DRIP)
+which was later called snooper\'s charter. This act obliged Internet
+Service Providers (ISPs) to regularly capture and store internet and
+communication activities of their users. Whist the act was challenged
+and it is under review due to high level of public outcry and legal
+challenges (Cobain, 2018; "Data Retention Directive - ORG Wiki," n.d.)
+it is one example amongst many others (for examples see: ) of what
+Deutsch (1963) called the "Nerves of Government". Deutsch enterprise was
+to develop a new political theory that is concerned with the new era of
+governmentality. A politics that offers people the ability to "that men
+should be more able to act in politics with their eyes open" (Deutsch,
+1963, p. 255). Barabasi (2003) explores many new field of science being
+developed in the 21^st^ century and find many similarities between them
+and exploring and introducing new sciences from a cartographic
+perspectives. Wiener (1961, p. 39) compares the 18^th^ to early 19^th^
+centuries as being the age of steam engines, he then describes the
+20^th^ century as age of communication and control. Wienar invented an
+approach of applying probability and statistical models into a network
+in order to represent and reproduce information that is uncertain based
+on what we know about a system. This line of enquiry was first developed
+by Wiener in order to predict the movement of aircraft during Second
+World War. The technology is now more mature and accessible in many
+occasions free of charge available online under navigational
+softwares[^1]. Similar to Barabasi who compares the network of internet
+with network of life on our planet and almost suggest they are
+indentical, Tiqqun (Tiqqun, 2001, p. 18) discusses the enterprise of
+neural network as they try to mimic human brain (Hecht-Nielsen, 1988;
+Schmidhuber, 2015). Inviting the reader to explore the present-day
+history of economic discourse as an "information problem" (Foucault
+(Rose, 1991, p. 105) calls this "Power/knowledge"). A trend in the last
+thirty years has started which is refered to as financlialization which
+is the control of market over every aspects of our life ( For example:
+Russi (2013) shows the effect of market and informationization of food
+industry; Martin (2002) provides a detailed overview of techniques and
+practices of financialization both through regulations prioritised by
+governments as well as its presense in the education system reshapes a
+market based approach to everyday life. ; Sotiropoulos (Sotiropoulos et
+al., 2013) represents a fresh overview of capitalist power relations
+based on financial derivatives. Davis (2009) representing some of the
+underlying practices that has changed the American society and reshaped
+it into a market centred logic where individuals are becoming
+shareholder agents, resulting in many vital human needs becoming highly
+dependent on Stock and mortgage markets. Financialization has also gain
+much attention within academia, for example in the UK Digital Economy is
+a research theme bringing together fields such as "These include Energy,
+Transport, Manufacturing, Health and Care, Creative and Cultural and
+Service Industries (particularly those driven by data such as Retail,
+Insurance, Financial and Advertising)." ("Digital Economy Theme strategy
+- EPSRC website," n.d.) ).
 
 ::: {custom-style="BodyText"}
 Techne is "...denotes neither art nor technology but a knowledge, the
 ability to plan and organize freely, to masterinstitutions (cf. Plato\'s
 Phaedrus). Technê is creating, building in the sense of a deliberate
-pro-ducing." (Heidegger, 1961, p. 11)
+pro-ducing." (Heidegger, 1961, p. 11), "tekhnb (an art, a reflected
+system of practices referring to general principles, notions, and
+concepts" (Foucault, 2005, p. 249)
 :::
 
 ::: {custom-style="BodyText"}
@@ -427,7 +491,7 @@ primarily a form of identification based on local knowledge: for
 example, as Scott notes, in England if there were multiple Johns, then
 locational or occupational clues would be used to reduce ambiguity. For
 instance, John Hill referring to John who lives on the Hill, or John
-Mills, John who owned a mill.[^1] Foucault\'s conception of biopolitics
+Mills, John who owned a mill.[^2] Foucault\'s conception of biopolitics
 and anatomopolitics is described by Hacking as the statistical
 establishment of the last three hundred years. We see the biopolitical
 starting around 1763 under the reign of Fredrich the Great for the
@@ -524,11 +588,11 @@ of indeterminism results in greater statistical control. This is
 evidenced by the exponential growth of enumeration in both the physical
 and natural sciences: the mass publication of numbers and statistics;
 annual reports; population enumerations such as life span, death
-rates;[^2] and health measurements. On the other hand, these mere
+rates;[^3] and health measurements. On the other hand, these mere
 simplifications do not only remain as numbers or statistics, rather they
 turn into policies, politics, and affective emotions, ultimately
 creating a social realm in which we live under the shadow of
-numbers.[^3]
+numbers.[^4]
 :::
 
 addaddNotes + explanation of essense and appearance\....
@@ -793,7 +857,7 @@ knowledge production (Gibbons et al., 1994). Jasanoff argues the main
 question that seeks our attention to connect these fragmented publics of
 experts, policy-makers, scientists and the general public should be "how
 to promote more meaningful interaction\...". Interstingly the
-terminology used to describe these publics[^4] is another example of
+terminology used to describe these publics[^5] is another example of
 these exclusions (i.e. publics from knowledge production pipelines).
 Further Jasanoff discusses the implications of the techniques that
 governments developed to control and legislate knowledge production
@@ -1062,6 +1126,13 @@ focus of chapter 3.
 :::
 
 [^1]: ::: {custom-style="FootnoteText"}
+    Flightradar24 (Flightradar24, n.d.) shows a real-time flights
+    information. In August 2015 security experts raised a terror attack
+    on a royal helicopter due to the information about the aircraft
+    being accessible via the website (Batchelor, 2015).
+    :::
+
+[^2]: ::: {custom-style="FootnoteText"}
     []{custom-style="FootnoteCharacters"} For examples of statistics
     about colonies see Necochea López (2010), in Britain and India
     (Cohn, 1996). In Scotland this was instigated largely by Sinclair
@@ -1069,12 +1140,12 @@ focus of chapter 3.
     Pels (1997).
     :::
 
-[^2]: ::: {custom-style="FootnoteText"}
+[^3]: ::: {custom-style="FootnoteText"}
     []{custom-style="FootnoteCharacters"} The first life insurance
     policy was issued in England in 1583 (Raynes, 1948, p.113)
     :::
 
-[^3]: ::: {custom-style="FootnoteText"}
+[^4]: ::: {custom-style="FootnoteText"}
     []{custom-style="FootnoteCharacters"} Although outside of the
     purview of this short paper it should be noted that the application
     of the politics of enumeration has been seen across all sectors of
@@ -1084,7 +1155,7 @@ focus of chapter 3.
     knowledge production. She argues or doing so sh)
     :::
 
-[^4]: ::: {custom-style="FootnoteText"}
+[^5]: ::: {custom-style="FootnoteText"}
     []{custom-style="FootnoteCharacters"} We separate different
     communities by their expertise, such as policy-makers, experts,
     scientific community and then we have general public which sounds
